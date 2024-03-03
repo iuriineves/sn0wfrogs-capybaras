@@ -1,0 +1,45 @@
+{
+	"schemaVersion": 1,
+	"id": "neves_capybaras",
+	"version": "${version}",
+	"name": "Neves' Capybaras",
+	"description": "Add coconut doggies to your Minecraft world!",
+	"authors": [
+		"iuriineves"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/neves_capybaras/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"iuriineves.neves_capybaras.NevesCapybaras"
+		],
+		"client": [
+			"iuriineves.neves_capybaras.NevesCapybarasClient"
+		],
+		"fabric-datagen": [
+			"iuriineves.neves_capybaras.NevesCapybarasDataGenerator"
+		]
+	},
+	"mixins": [
+		"neves_capybaras.mixins.json",
+		{
+			"config": "neves_capybaras.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.20.4",
+		"geckolib": ">=4.4.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
