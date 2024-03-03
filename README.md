@@ -1,5 +1,5 @@
 ![Neves' Capybaras Logo](https://cdn.modrinth.com/data/cached_images/24f94d5b6d303fa5e4337a6fd6951a9889918b28.png)
-### A Fabric mod that adds Capybaras, the "coconut doggies", as you companionship!
+### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
 ## Requirements
 [<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
