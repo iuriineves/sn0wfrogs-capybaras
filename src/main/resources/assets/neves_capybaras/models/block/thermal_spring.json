@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "neves_capybaras:block/thermal_spring"
+  }
+}

@@ -8,10 +8,10 @@
 		"iuriineves"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/neves-capybaras",
+		"sources": "https://github.com/iuriineves/Neves-Capybaras/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "ARR",
 	"icon": "assets/neves_capybaras/icon.png",
 	"environment": "*",
 	"entrypoints": {

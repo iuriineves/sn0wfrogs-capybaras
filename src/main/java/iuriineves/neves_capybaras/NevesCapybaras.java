@@ -1,5 +1,6 @@
 package iuriineves.neves_capybaras;
 
+import iuriineves.neves_capybaras.init.ModBlocks;
 import iuriineves.neves_capybaras.init.ModEntities;
 import iuriineves.neves_capybaras.init.ModItems;
 import iuriineves.neves_capybaras.init.ModSoundEvents;
@@ -20,6 +21,7 @@ public class NevesCapybaras implements ModInitializer {
 		ModEntities.initialize();
 		ModItems.initialize();
 		ModSoundEvents.initialize();
+		ModBlocks.initialize();
 
 	}
 }

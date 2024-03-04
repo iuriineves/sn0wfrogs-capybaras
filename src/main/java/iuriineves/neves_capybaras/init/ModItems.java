@@ -29,6 +29,7 @@ public interface ModItems {
     static void initialize() {
         ITEMS.keySet().forEach(item -> {
             Registry.register(Registries.ITEM, ITEMS.get(item), item);
+
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
