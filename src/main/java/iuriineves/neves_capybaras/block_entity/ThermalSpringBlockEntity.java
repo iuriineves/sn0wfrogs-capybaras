@@ -8,6 +8,6 @@ import net.minecraft.util.math.BlockPos;
 
 public class ThermalSpringBlockEntity extends BlockEntity {
     public ThermalSpringBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY, pos, state);
+        super(ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY.build(), pos, state);
     }
 }
