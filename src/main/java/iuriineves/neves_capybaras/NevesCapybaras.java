@@ -1,9 +1,6 @@
 package iuriineves.neves_capybaras;
 
-import iuriineves.neves_capybaras.init.ModBlocks;
-import iuriineves.neves_capybaras.init.ModEntities;
-import iuriineves.neves_capybaras.init.ModItems;
-import iuriineves.neves_capybaras.init.ModSoundEvents;
+import iuriineves.neves_capybaras.init.*;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -22,6 +19,7 @@ public class NevesCapybaras implements ModInitializer {
 		ModItems.initialize();
 		ModSoundEvents.initialize();
 		ModBlocks.initialize();
+		ModBlockEntities.initialize();
 
 	}
 }
