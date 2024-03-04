@@ -1,5 +1,6 @@
 package iuriineves.neves_capybaras.block_entity;
 
+import iuriineves.neves_capybaras.NevesCapybaras;
 import iuriineves.neves_capybaras.init.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,13 +12,14 @@ import net.minecraft.world.World;
 
 public class ThermalSpringBlockEntity extends BlockEntity {
     public ThermalSpringBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY.build(), pos, state);
+        super(ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY, pos, state);
     }
 
     public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState blockState, T t) {
 
         if (world.getBlockState(blockPos.up()).getBlock() == Blocks.WATER) {
-            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 0.0, -5.0, 0.0);
+
+            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, blockPos.getX() + 0.5, blockPos.getY() + 1, blockPos.getZ() + 0.5, 0.0, 0, 0.0);
         }
     }
 }

@@ -1,6 +1,7 @@
 package iuriineves.neves_capybaras.init;
 
 import iuriineves.neves_capybaras.NevesCapybaras;
+import iuriineves.neves_capybaras.block.ThermalSpringBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -15,7 +16,7 @@ import java.util.Map;
 public interface ModBlocks {
     Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 
-    Block THERMAL_SPRING_BLOCK = createBlock("thermal_spring", new Block(FabricBlockSettings.create().strength(4.0f)), true);
+    ThermalSpringBlock THERMAL_SPRING_BLOCK = createBlock("thermal_spring", new ThermalSpringBlock(FabricBlockSettings.create().strength(4.0f)), true);
 
     private static <T extends Block> T createBlock(String name, T block, boolean createItem) {
         BLOCKS.put(block, new Identifier(NevesCapybaras.MOD_ID, name));

@@ -15,17 +15,17 @@ import java.util.Map;
 
 public interface ModBlockEntities {
 
-    Map<FabricBlockEntityTypeBuilder<? extends BlockEntity>, Identifier> BLOCK_ENTITIES = new LinkedHashMap<>();
+    Map<BlockEntityType<?>, Identifier> BLOCK_ENTITIES = new LinkedHashMap<>();
 
-      FabricBlockEntityTypeBuilder<? extends BlockEntity> THERMAL_SPRING_BLOCK_ENTITY = createBlockEntity("thermal_spring", ModBlocks.THERMAL_SPRING_BLOCK, ThermalSpringBlockEntity::new);
+    BlockEntityType<? extends BlockEntity> THERMAL_SPRING_BLOCK_ENTITY = createBlockEntity("thermal_spring", ModBlocks.THERMAL_SPRING_BLOCK, ThermalSpringBlockEntity::new);
 
-    private static FabricBlockEntityTypeBuilder<? extends BlockEntity> createBlockEntity(String name, Block block, FabricBlockEntityTypeBuilder.Factory<? extends BlockEntity> blockEntity) {
-        FabricBlockEntityTypeBuilder<? extends BlockEntity> blockEntityTypeBuilder = FabricBlockEntityTypeBuilder.create(blockEntity, block);
-        BLOCK_ENTITIES.put(blockEntityTypeBuilder, new Identifier(NevesCapybaras.MOD_ID, name));
-        return blockEntityTypeBuilder;
+    private static BlockEntityType<?> createBlockEntity(String name, Block block, FabricBlockEntityTypeBuilder.Factory<? extends BlockEntity> blockEntity) {
+        BlockEntityType<?> blockEntityType = FabricBlockEntityTypeBuilder.create(blockEntity, block).build();
+        BLOCK_ENTITIES.put(blockEntityType, new Identifier(NevesCapybaras.MOD_ID, name));
+        return blockEntityType;
     }
 
     static void initialize() {
-        BLOCK_ENTITIES.keySet().forEach(blockEntity -> Registry.register(Registries.BLOCK_ENTITY_TYPE, BLOCK_ENTITIES.get(blockEntity), blockEntity.build()));
+        BLOCK_ENTITIES.keySet().forEach(blockEntity -> Registry.register(Registries.BLOCK_ENTITY_TYPE, BLOCK_ENTITIES.get(blockEntity), blockEntity));
     }
 }

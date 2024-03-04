@@ -1,6 +1,7 @@
 package iuriineves.neves_capybaras.block;
 
 import com.mojang.serialization.MapCodec;
+import iuriineves.neves_capybaras.NevesCapybaras;
 import iuriineves.neves_capybaras.block_entity.ThermalSpringBlockEntity;
 import iuriineves.neves_capybaras.init.ModBlockEntities;
 import net.minecraft.block.Block;
@@ -14,14 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ThermalSpringBlock extends BlockWithEntity {
+public class ThermalSpringBlock extends Block implements BlockEntityProvider {
     public ThermalSpringBlock(Settings settings) {
         super(settings);
-    }
-
-    @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return null;
     }
 
     @Nullable
@@ -33,7 +29,7 @@ public class ThermalSpringBlock extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (type != ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY.build()) return null;
+        if (type != ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY) return null;
         return ThermalSpringBlockEntity::tick;
     }
 }
