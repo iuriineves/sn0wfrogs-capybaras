@@ -22,20 +22,31 @@ public class ThermalSpringBlockEntity extends BlockEntity {
         super.writeNbt(nbt);
     }
 
+    public static double calculateDistance(BlockPos blockPos1, BlockPos blockPos2) {
+        double distanceX = blockPos2.getX() - blockPos1.getX();
+        double distanceY = blockPos2.getY() - blockPos1.getY();
+        double distanceZ = blockPos2.getZ() - blockPos1.getZ();
+
+        return Math.sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
+    }
+
     private static void emitParticles(World world, BlockPos blockPos) {
         if (world.getBlockState(blockPos.up()).getBlock() == Blocks.WATER) {
             if (!(world.getTime() % 5 == 0)) {
                 return;
             }
 
+
             BlockPos waterBlock = blockPos.up();
             while (world.getBlockState(waterBlock).getBlock() == Blocks.WATER) {
                 waterBlock = waterBlock.up();
             }
 
+            BlockPos finalWaterBlock = waterBlock;
             BlockPos.iterateOutwards(waterBlock, 10, 1, 10).forEach(blockPos1 -> {
                 if (world.getBlockState(blockPos1).getBlock() == Blocks.WATER) {
-                    world.addParticle(ParticleTypes.CLOUD, blockPos1.getX() + ((double) world.random.nextBetween(0, 10) / 10), blockPos1.getY(), blockPos1.getZ() + ((double) world.random.nextBetween(0, 10) / 10), 0.0, 0.1, 0.0);
+                    double speed = calculateDistance(finalWaterBlock, blockPos1);
+                    world.addParticle(ParticleTypes.CLOUD, blockPos1.getX() + ((double) world.random.nextBetween(0, 10) / 10), blockPos1.getY(), blockPos1.getZ() + ((double) world.random.nextBetween(0, 10) / 10), 0.0, 0.1 * (1 / speed) + 1, 0.0);
 
                 }
             });
