@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "neves_capybaras:block/mandarin_bush_sapling"
+  }
+}

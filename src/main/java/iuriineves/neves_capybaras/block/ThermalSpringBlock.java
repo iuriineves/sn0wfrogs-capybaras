@@ -1,10 +1,12 @@
 package iuriineves.neves_capybaras.block;
 
+import com.mojang.serialization.MapCodec;
 import iuriineves.neves_capybaras.block_entity.ThermalSpringBlockEntity;
 import iuriineves.neves_capybaras.init.ModBlockEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;

@@ -1,9 +1,12 @@
 package iuriineves.neves_capybaras.entity;
 
 import iuriineves.neves_capybaras.NevesCapybaras;
+import iuriineves.neves_capybaras.entity.ai.SwimBelowSurfaceGoal;
 import iuriineves.neves_capybaras.init.ModEntities;
 import iuriineves.neves_capybaras.init.ModSoundEvents;
+import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -20,6 +23,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -35,9 +39,6 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
 
     protected final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("walk");
     protected final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
-
-    SoundEvent ENTITY_CAPYBARA_AMBIENT = SoundEvent.of(new Identifier(NevesCapybaras.MOD_ID, "entity.capybara.ambient"));
-
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
     public CapybaraEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -68,13 +69,22 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     }
 
     @Override
+    public void travel(Vec3d movementInput) {
+        if (this.isTouchingWater()) {
+            this.updateVelocity(0.1f, movementInput);
+        }
+        super.travel(movementInput);
+    }
+
+    @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new WanderAroundPointOfInterestGoal(this, 1.0, false));
+        this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25));
         this.goalSelector.add(3, new AnimalMateGoal(this, 1.0));
         this.goalSelector.add(4, new TemptGoal(this, 1.2, Ingredient.ofItems(Items.MELON_SLICE), false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.1));
-        this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0));
+        this.goalSelector.add(6, new MoveIntoWaterGoal(this));
+        this.goalSelector.add(6, new WanderAroundGoal(this, 1.0));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
     }
@@ -87,6 +97,11 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
         }
         event.getController().setAnimationSpeed(1);
         return event.setAndContinue(IDLE_ANIM);
+    }
+
+    @Override
+    public double getSwimHeight() {
+        return 0.7D;
     }
 
     @Override

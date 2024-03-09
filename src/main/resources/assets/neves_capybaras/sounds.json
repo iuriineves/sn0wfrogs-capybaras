@@ -2,19 +2,19 @@
   "entity.capybara.ambient": {
     "subtitle": "subtitles.neves_capybaras.ambient",
     "sounds": [
-      "neves_capybaras:capybara_squeak_1",
-      "neves_capybaras:capybara_squeak_2",
-      "neves_capybaras:capybara_whistle",
-      "neves_capybaras:capybara_click"
+      "neves_capybaras:capybara/capybara_squeak_1",
+      "neves_capybaras:capybara/capybara_squeak_2",
+      "neves_capybaras:capybara/capybara_whistle",
+      "neves_capybaras:capybara/capybara_click"
     ]
   },
 
   "entity.capybara.attacked": {
     "subtitle": "subtitles.neves_capybaras.attacked",
     "sounds": [
-      "neves_capybaras:capybara_bark_1",
-      "neves_capybaras:capybara_bark_2",
-      "neves_capybaras:capybara_bark_3"
+      "neves_capybaras:capybara/capybara_bark_1",
+      "neves_capybaras:capybara/capybara_bark_2",
+      "neves_capybaras:capybara/capybara_bark_3"
     ]
   }
 }

@@ -1,12 +1,15 @@
 package iuriineves.neves_capybaras.block_entity;
 
 import iuriineves.neves_capybaras.init.ModBlockEntities;
+import iuriineves.neves_capybaras.init.ModSoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -45,13 +48,14 @@ public class ThermalSpringBlockEntity extends BlockEntity {
             BlockPos finalWaterBlock = waterBlock;
             BlockPos.iterateOutwards(waterBlock, 10, 1, 10).forEach(blockPos1 -> {
                 if (world.getBlockState(blockPos1).getBlock() == Blocks.WATER) {
-                    double speed = calculateDistance(finalWaterBlock, blockPos1);
-                    world.addParticle(ParticleTypes.CLOUD, blockPos1.getX() + ((double) world.random.nextBetween(0, 10) / 10), blockPos1.getY(), blockPos1.getZ() + ((double) world.random.nextBetween(0, 10) / 10), 0.0, 0.1 * (1 / speed) + 1, 0.0);
-
+                    double distance = calculateDistance(finalWaterBlock, blockPos1);
+                    if (distance <= 10) {
+                        world.addParticle(ParticleTypes.CLOUD, blockPos1.getX() + ((double) world.random.nextBetween(0, 10) / 10), blockPos1.getY() + 0.5, blockPos1.getZ() + ((double) world.random.nextBetween(0, 10) / 10), 0.0 + (((double) world.random.nextBetween(0, 1) / 10) - 0.05), 0.2 - ((0.2 / 10) * distance), 0.0 + (((double) world.random.nextBetween(0, 1) / 10) - 0.05));
+                    }
                 }
             });
         } else if (world.getBlockState(blockPos.down()).getBlock() == Blocks.WATER) {
-            world.addParticle(ParticleTypes.CLOUD, blockPos.getX() + ((double) world.random.nextBetween(3, 6) / 10), blockPos.getY() + 1, blockPos.getZ() + ((double) world.random.nextBetween(3, 6) / 10), 0.0 + (((double) world.random.nextBetween(0, 1) / 10) - 0.05), 0.5, 0.0 + (((double) world.random.nextBetween(0, 1) / 10) - 0.05));
+            world.addParticle(ParticleTypes.CLOUD, blockPos.getX() + ((double) world.random.nextBetween(3, 6) / 10), blockPos.up().getY(), blockPos.getZ() + ((double) world.random.nextBetween(3, 6) / 10), 0.0 + (((double) world.random.nextBetween(0, 1) / 10) - 0.05), 0.5, 0.0 + (((double) world.random.nextBetween(0, 1) / 10) - 0.05));
         }
     }
 
