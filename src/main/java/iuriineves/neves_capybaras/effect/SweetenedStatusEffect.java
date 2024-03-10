@@ -8,8 +8,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 
 import java.util.Objects;
@@ -33,7 +36,15 @@ public class SweetenedStatusEffect extends StatusEffect {
 
         ConsumeItemCallback.EVENT.register((itemStack, user) -> {
             if (user == player && player.hasStatusEffect(ModStatusEffects.SWEETENED)) {
-                NevesCapybaras.LOGGER.info("Player ate food.");
+
+                if (itemStack.getItem() == Items.GOLDEN_APPLE) {
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 1));
+                }
+
+                if (itemStack.getItem() == Items.ENCHANTED_GOLDEN_APPLE) {
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 4));
+                }
+
                 player.getHungerManager().add((itemStack.getFoodComponent().getHunger() / 4), 0.3f);
             }
             return ActionResult.SUCCESS;
