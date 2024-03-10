@@ -1,10 +1,10 @@
 ![Neves' Capybaras Logo](https://cdn.modrinth.com/data/cached_images/24f94d5b6d303fa5e4337a6fd6951a9889918b28.png)
 ### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
+[![Download on Modrinth](https://raw.githubusercontent.com/Prospector/badges/master/modrinth-badge-72h-padded.png)](https://modrinth.com/mod/nevescapybaras)
 ## Requirements
 [<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
 [<img src="https://camo.githubusercontent.com/56f1b4c1016d7698f0bf00e1305c1a22123d819a8fb43181d8cb8139b0d3136d/68747470733a2f2f692e696d6775722e636f6d2f4b42396b5259562e706e67" alt="Requires Geckolib" width="200"/>]([https://modrinth.com/mod/fabric-api](https://modrinth.com/mod/geckolib))
-
 
 ## [Video Showcase](https://www.youtube-nocookie.com/embed/GtRuQqqVLZE)
 
@@ -19,25 +19,32 @@
 
 ## Features
 ### Capybaras:
-- Capybaras are new mods found in mangrove swamps and swamps. They will spawn anywhere on those, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
+- Capybaras are new mods found in swamps, mangrove swamps and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
 - Capybaras will follow you if you hold a melon slice. It also allows you to breed them.
 - Capybaras are semi-aquatic animals, so they spawn more often near water bodies. However, they do not need water in order to survive.
-### Capybara's Paradise:
+### Capybaras' Paradise:
 - A new structure found in mangroove swamps. Here, capybaras spawn more often than in the rest of the swamp, and they'll also stay closer to these structures.
 - You'll find lots of watermelons scattered around, as well as small ponds with thermal springs, currently being the only way to obtain this new block.
 ### Mandarins:
 - Mandarin bushes:
   - Despite being totally not realistic, mandarin bushes are the way to get the new fruit.
-  - You can find mandarins, mandarin leaves and flowering mandarin leaves in these bushes. Breaking the leaves has a chance at dropping mandarins, much like apples drop from oak leaves.
+  - You can find mandarins, mandarin leaves and flowering mandarin leaves in these bushes.
+  - These bushes only spawn on the plains biome, so make sure to gather some saplings to plant them anywhere else you might want to have it.
 - Mandarin:
-  - A new food type. Eating this will gives 2 hunger points + the "Sweetened" effect for 5 seconds.
-  - You can put a mandarin on a capybara's head by right clicking them while holding it.
+  - A new food type. Eating this will give you 2 hunger points + the "Sweetened" status effect for 5 seconds.
+  - You can put a mandarin on a capybara's head by right clicking them while holding a mandarin.
+- Mandarin leaves:
+  - A new decorative block that when broken, has a chance at dropping either mandarins, a mandarin bush sapling, or sticks.
+  - This block has a second variant, the flowering mandarin leaves, only being visually different.
+
 ### Thermal springs:
-- A new decorative block. Thermal springs are capybaras' hotspots (no pun intended), as they are attracted to it.
-- This block emits steam particles from the every water block in a 5 block radius. If there's water below it, it will essentially become a geyser.
+- A new decorative block. This block emits steam particles from the water blocks above it in a 5 block radius.
+- If there's water below it, the thermal spring essentially becomes a geyser, shooting steam particles up.
+- The only way to find this block is to find a Capybaras' Paradise structure, where the ponds will have this block at the bottom of them.
+- The particles are a bit performance intensive, so use these sparingly (spacing them 10 block apart should give you the most use out of them).
 ### Sweetened:
-- A new effect. While having this effect, all food gives you 50% more hunger points (1.5x). For golden apples and enchanted golden apples, you'll get 50% more hearts.
-- This effect is only obtainable through eating mandarins.
+- A new effect. While having this effect, all food gives you 50% more hunger points (1.5x). For golden apples and enchanted golden apples, as well as the 50% more hunger points, you'll also get 2 more absorption hearts (4 health points).
+- This effect is only obtainable through eating mandarins, and it only has a single level.
 
 ## FAQ
 
@@ -53,4 +60,4 @@
 
 **No**: I only mod for the Fabric loader, so other modloader versions are not going to happen. Sorry! (A quilt version might happen, though)
 
-##### Copyright © 2024 iuriineves
+###### Copyright (c) 2024 iuriineves
