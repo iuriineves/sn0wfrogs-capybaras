@@ -30,11 +30,11 @@
   - Despite being totally not realistic, mandarin bushes are the way to get the new fruit.
   - You can find mandarins, mandarin leaves and flowering mandarin leaves in these bushes. Breaking the leaves has a chance at dropping mandarins, much like apples drop from oak leaves.
 - Mandarin:
-  - A new food type. Eating this will gives 1.5 hunger points + the "Sweetened" effect for 5 seconds.
-  - You can put mandarins on capybaras' head by right clicking them while holding a mandarin.
+  - A new food type. Eating this will gives 2 hunger points + the "Sweetened" effect for 5 seconds.
+  - You can put a mandarin on a capybara's head by right clicking them while holding it.
 ### Thermal springs:
-- A new decorative block (for now). Thermal springs are capybaras' hotspots (no pun intended), as they are attracted to it.
-- This block emits steam particles from the every water block in a 5 block radius. If there's water below it, it essentially becomes a geyser.
+- A new decorative block. Thermal springs are capybaras' hotspots (no pun intended), as they are attracted to it.
+- This block emits steam particles from the every water block in a 5 block radius. If there's water below it, it will essentially become a geyser.
 ### Sweetened:
 - A new effect. While having this effect, all food gives you 50% more hunger points (1.5x). For golden apples and enchanted golden apples, you'll get 50% more hearts.
 - This effect is only obtainable through eating mandarins.

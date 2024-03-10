@@ -3,6 +3,7 @@ package iuriineves.neves_capybaras.init;
 import iuriineves.neves_capybaras.NevesCapybaras;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -17,7 +18,7 @@ public interface ModItems {
     Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
     Item CAPYBARA_SPAWN_EGG = createItem("capybara_spawn_egg", new SpawnEggItem(CAPYBARA, 0xa25a3d, 0x332b24, new FabricItemSettings()));
-    Item MANDARIN = createItem("mandarin", new Item(new FabricItemSettings().food(FoodComponents.APPLE)));
+    Item MANDARIN = createItem("mandarin", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(ModStatusEffects.SWEETENED, 100), 1).build())));
 
     private static <T extends Item> T createItem(String name, T item) {
         ITEMS.put(item, new Identifier(NevesCapybaras.MOD_ID, name));

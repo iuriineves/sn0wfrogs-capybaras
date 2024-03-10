@@ -34,6 +34,7 @@ public class NevesCapybaras implements ModInitializer {
 		ModItems.initialize();
 		ModSoundEvents.initialize();
 		ModBlockEntities.initialize();
+		ModStatusEffects.initialize();
 		Registry.register(Registries.ITEM_GROUP, new Identifier("neves_capybaras", "capy_group"), ITEM_GROUP);
 
 	}
