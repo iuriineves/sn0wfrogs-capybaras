@@ -16,8 +16,6 @@ import java.util.Objects;
 
 public class SweetenedStatusEffect extends StatusEffect {
 
-    int food, prevFood = 0;
-
     public SweetenedStatusEffect(StatusEffectCategory category, int color) {
         super(category, color);
     }
