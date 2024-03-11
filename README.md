@@ -1,7 +1,7 @@
 ![Neves' Capybaras Logo](https://cdn.modrinth.com/data/cached_images/24f94d5b6d303fa5e4337a6fd6951a9889918b28.png)
 ### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
-[![Download on Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/nevescapybaras)
+[![Available on Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/nevescapybaras)
 ## Requirements
 [<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
 [<img src="https://camo.githubusercontent.com/56f1b4c1016d7698f0bf00e1305c1a22123d819a8fb43181d8cb8139b0d3136d/68747470733a2f2f692e696d6775722e636f6d2f4b42396b5259562e706e67" alt="Requires Geckolib" width="200"/>]([https://modrinth.com/mod/fabric-api](https://modrinth.com/mod/geckolib))
