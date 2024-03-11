@@ -21,7 +21,7 @@
 
 ## Features
 ### Capybaras:
-- Capybaras are new mods found in swamps, mangrove swamps and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
+- Capybaras are new mobs found in swamps, mangrove swamps and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
 - Capybaras will follow you if you hold a melon slice. It also allows you to breed them.
 - Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water in order to survive.
 - Capybaras are really fast swimmers. If you grab a melon slice in front of them while swimming, they'll catch up to you in a heartbeat.
