@@ -100,9 +100,9 @@
     "creature": [
       {
         "type": "neves_capybaras:capybara",
-        "maxCount": 3,
-        "minCount": 4,
-        "weight": 5
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 15
       }
     ],
     "misc": [],
@@ -183,12 +183,6 @@
         "type": "minecraft:squid",
         "maxCount": 4,
         "minCount": 1,
-        "weight": 2
-      },
-      {
-        "type": "neves_capybaras:capybara",
-        "maxCount": 2,
-        "minCount": 2,
         "weight": 2
       }
     ]

@@ -8,13 +8,17 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.cache.object.GeoBone;
+import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 
 import java.util.Optional;
 
 public class CapybaraEntityRenderer extends GeoEntityRenderer<CapybaraEntity> {
     public CapybaraEntityRenderer(EntityRendererFactory.Context context) {
         super(context, new CapybaraEntityModel());
+
+        addRenderLayer(new CapybaraMandarinLayer(this));
     }
 
     @Override

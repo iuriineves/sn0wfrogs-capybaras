@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "neves_capybaras:capybaras_paradise",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1343618227,
+    "frequency": 0.5,
+    "spacing": 10,
+    "separation": 5
+  }
+}

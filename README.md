@@ -11,7 +11,9 @@
 ## Gallery
 ![Happy capybara family in the mud.](https://cdn.modrinth.com/data/cached_images/10fa8cfc57fb411de59ccc62d755b34ebeee94dc.png)
 
-![Mangroove swamp with thermal springs.](https://cdn.modrinth.com/data/cached_images/499b4725ff2c5cb93fb2bb46ff79d4eb78e1de5d.png)
+![Capybaras playing in the thermal springs.](https://cdn.modrinth.com/data/cached_images/56b01a09cafd9312fb315929fb574f0fa1faa5e3.png)
+
+![Mangrove swamp with thermal springs.](https://cdn.modrinth.com/data/cached_images/499b4725ff2c5cb93fb2bb46ff79d4eb78e1de5d.png)
 
 ![Mandarin bushes on a sunny day.](https://cdn.modrinth.com/data/cached_images/b726f5e55d4aeaed5c6161559d404c985df99127.png)
 
@@ -21,9 +23,10 @@
 ### Capybaras:
 - Capybaras are new mods found in swamps, mangrove swamps and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
 - Capybaras will follow you if you hold a melon slice. It also allows you to breed them.
-- Capybaras are semi-aquatic animals, so they spawn more often near water bodies. However, they do not need water in order to survive.
+- Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water in order to survive.
+- Capybaras are really fast swimmers. If you grab a melon slice in front of them while swimming, they'll catch up to you in a heartbeat.
 ### Capybaras' Paradise:
-- A new structure found in mangroove swamps. Here, capybaras spawn more often than in the rest of the swamp, and they'll also stay closer to these structures.
+- A new structure found in mangrove swamps. Here, capybaras spawn more often than in the rest of the swamp, and they'll also stay closer to these structures.
 - You'll find lots of watermelons scattered around, as well as small ponds with thermal springs, currently being the only way to obtain this new block.
 ### Mandarins:
 - Mandarin bushes:
@@ -32,7 +35,7 @@
   - These bushes only spawn on the plains biome, so make sure to gather some saplings to plant them anywhere else you might want to have it.
 - Mandarin:
   - A new food type. Eating this will give you 2 hunger points + the "Sweetened" status effect for 5 seconds.
-  - You can put a mandarin on a capybara's head by right clicking them while holding a mandarin.
+  - You can put a mandarin on a capybara's head by right-clicking them while holding a mandarin. To remove it, just right-click the capybara while sneaking, and the mandarin will drop right off.
 - Mandarin leaves:
   - A new decorative block that when broken, has a chance at dropping either mandarins, a mandarin bush sapling, or sticks.
   - This block has a second variant, the flowering mandarin leaves, only being visually different.

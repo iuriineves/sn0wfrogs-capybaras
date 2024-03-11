@@ -144,7 +144,7 @@
         "type": "neves_capybaras:capybara",
         "maxCount": 4,
         "minCount": 3,
-        "weight": 10
+        "weight": 20
       }
     ],
     "misc": [],
@@ -213,14 +213,7 @@
       }
     ],
     "water_ambient": [],
-    "water_creature": [
-      {
-        "type": "neves_capybaras:capybara",
-        "maxCount": 2,
-        "minCount": 2,
-        "weight": 2
-      }
-    ]
+    "water_creature": []
   },
   "temperature": 0.8
 }

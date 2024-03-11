@@ -23,7 +23,7 @@ public interface ModEntities {
     EntityType<CapybaraEntity> CAPYBARA = createEntity(
             "capybara",
             FabricEntityTypeBuilder
-                    .create(SpawnGroup.AMBIENT, CapybaraEntity::new)
+                    .create(SpawnGroup.CREATURE, CapybaraEntity::new)
                     .entityFactory(CapybaraEntity::new)
                     .dimensions(EntityDimensions.fixed(0.7f, 1.0f))
                     .build()

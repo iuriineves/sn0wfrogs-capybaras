@@ -3,20 +3,27 @@ package iuriineves.neves_capybaras.entity;
 import iuriineves.neves_capybaras.NevesCapybaras;
 import iuriineves.neves_capybaras.entity.ai.SwimBelowSurfaceGoal;
 import iuriineves.neves_capybaras.init.ModEntities;
+import iuriineves.neves_capybaras.init.ModItems;
 import iuriineves.neves_capybaras.init.ModSoundEvents;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -35,11 +42,38 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.Objects;
+
 public class CapybaraEntity extends AnimalEntity implements GeoEntity {
+
+    public static final TrackedData<Boolean> MANDARIN = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     protected final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("walk");
     protected final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+
+        this.dataTracker.startTracking(MANDARIN, false);
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+
+        nbt.putBoolean("Mandarin", this.hasMandarin());
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+
+        if (nbt.contains("Mandarin")) {
+            this.setMandarin(nbt.getBoolean("Mandarin"));
+        }
+    }
 
     public CapybaraEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -87,6 +121,40 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
         this.goalSelector.add(6, new WanderAroundGoal(this, 1.0));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
+    }
+
+    @Override
+    public ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand) {
+
+        if (hasMandarin() && player.isSneaking()) {
+            if (player.getWorld().isClient()) player.swingHand(Hand.MAIN_HAND);
+
+            if (!player.getWorld().isClient()) {
+                if (!player.isCreative())
+                    player.getWorld().spawnEntity(new ItemEntity(player.getWorld(), this.getX(), this.getY() + 1, this.getZ(), new ItemStack(ModItems.MANDARIN)));
+                setMandarin(false);
+            }
+       } else if (!hasMandarin() && !this.isBaby()){
+            if (hand == Hand.MAIN_HAND && Objects.equals(player.getMainHandStack().getItem(), ModItems.MANDARIN) && !player.isSneaking()) {
+                if (player.getWorld().isClient()) player.swingHand(Hand.MAIN_HAND);
+
+                if (!player.getWorld().isClient()) {
+                    if (!player.isCreative()) player.getMainHandStack().decrement(1);
+                    setMandarin(true);
+                }
+
+            }
+        }
+
+        return super.interactAt(player, hitPos, hand);
+    }
+
+    public void setMandarin(boolean mandarin) {
+        this.dataTracker.set(MANDARIN, mandarin);
+    }
+
+    public boolean hasMandarin() {
+        return this.dataTracker.get(MANDARIN);
     }
 
     private
