@@ -45,7 +45,7 @@ public class SweetenedStatusEffect extends StatusEffect {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 4));
                 }
 
-                player.getHungerManager().add((itemStack.getFoodComponent().getHunger() / 4), 0.3f);
+                player.getHungerManager().add((itemStack.getItem().getFoodComponent().getHunger() / 4), 0.3f);
             }
             return ActionResult.SUCCESS;
         });
