@@ -1,12 +1,12 @@
 ![Neves' Capybaras Logo](https://cdn.modrinth.com/data/cached_images/24f94d5b6d303fa5e4337a6fd6951a9889918b28.png)
 ### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
-[![Download on Modrinth](https://raw.githubusercontent.com/Prospector/badges/master/modrinth-badge-72h-padded.png)](https://modrinth.com/mod/nevescapybaras)
+[![Download on Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/nevescapybaras)
 ## Requirements
 [<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
 [<img src="https://camo.githubusercontent.com/56f1b4c1016d7698f0bf00e1305c1a22123d819a8fb43181d8cb8139b0d3136d/68747470733a2f2f692e696d6775722e636f6d2f4b42396b5259562e706e67" alt="Requires Geckolib" width="200"/>]([https://modrinth.com/mod/fabric-api](https://modrinth.com/mod/geckolib))
 
-## [Video Showcase](https://www.youtube-nocookie.com/embed/GtRuQqqVLZE)
+## Video Showcase [NOT OUT YET]
 
 ## Gallery
 ![Happy capybara family in the mud.](https://cdn.modrinth.com/data/cached_images/10fa8cfc57fb411de59ccc62d755b34ebeee94dc.png)
@@ -26,10 +26,10 @@
 - Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water in order to survive.
 - Capybaras are really fast swimmers. If you grab a melon slice in front of them while swimming, they'll catch up to you in a heartbeat.
 ### Capybaras' Paradise:
-- A new structure found in mangrove swamps. Here, capybaras spawn more often than in the rest of the swamp, and they'll also stay closer to these structures.
+- A new structure found in mangrove swamps. Here, capybaras spawn more often than in the rest of the swamp, as well as staying closer to these structures.
 - You'll find lots of watermelons scattered around, as well as small ponds with thermal springs, currently being the only way to obtain this new block.
 ### Mandarins:
-- Mandarin bushes:
+- Mandarin bush:
   - Despite being totally not realistic, mandarin bushes are the way to get the new fruit.
   - You can find mandarins, mandarin leaves and flowering mandarin leaves in these bushes.
   - These bushes only spawn on the plains biome, so make sure to gather some saplings to plant them anywhere else you might want to have it.
@@ -41,7 +41,7 @@
   - This block has a second variant, the flowering mandarin leaves, only being visually different.
 
 ### Thermal springs:
-- A new decorative block. This block emits steam particles from the water blocks above it in a 5 block radius.
+- A new decorative block. This block emits steam particles from the water blocks above it in a 5 block radius. 
 - If there's water below it, the thermal spring essentially becomes a geyser, shooting steam particles up.
 - The only way to find this block is to find a Capybaras' Paradise structure, where the ponds will have this block at the bottom of them.
 - The particles are a bit performance intensive, so use these sparingly (spacing them 10 block apart should give you the most use out of them).
