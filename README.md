@@ -1,7 +1,7 @@
 ![Neves' Capybaras Logo](https://cdn.modrinth.com/data/cached_images/24f94d5b6d303fa5e4337a6fd6951a9889918b28.png)
 ### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
-[![Available on Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/nevescapybaras)
+[![Download on Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/nevescapybaras)
 ## Requirements
 [<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
 [<img src="https://camo.githubusercontent.com/56f1b4c1016d7698f0bf00e1305c1a22123d819a8fb43181d8cb8139b0d3136d/68747470733a2f2f692e696d6775722e636f6d2f4b42396b5259562e706e67" alt="Requires Geckolib" width="200"/>]([https://modrinth.com/mod/fabric-api](https://modrinth.com/mod/geckolib))
@@ -21,7 +21,7 @@
 
 ## Features
 ### Capybaras:
-- Capybaras are new mobs found in swamps, mangrove swamps and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
+- Capybaras are new mods found in swamps, mangrove swamps and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
 - Capybaras will follow you if you hold a melon slice. It also allows you to breed them.
 - Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water in order to survive.
 - Capybaras are really fast swimmers. If you grab a melon slice in front of them while swimming, they'll catch up to you in a heartbeat.
