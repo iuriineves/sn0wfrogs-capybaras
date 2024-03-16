@@ -4,8 +4,10 @@ import iuriineves.neves_capybaras.init.*;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -26,6 +28,9 @@ public class NevesCapybaras implements ModInitializer {
 			.build();
 
 
+	public static final DefaultParticleType WATER_VAPOR = FabricParticleTypes.simple();
+	public static final DefaultParticleType GEYSER = FabricParticleTypes.simple();
+
 	@Override
 	public void onInitialize() {
 
@@ -35,6 +40,10 @@ public class NevesCapybaras implements ModInitializer {
 		ModSoundEvents.initialize();
 		ModBlockEntities.initialize();
 		ModStatusEffects.initialize();
+
+		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "water_vapor"), WATER_VAPOR);
+		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "geyser"), GEYSER);
+
 		Registry.register(Registries.ITEM_GROUP, new Identifier("neves_capybaras", "capy_group"), ITEM_GROUP);
 
 	}

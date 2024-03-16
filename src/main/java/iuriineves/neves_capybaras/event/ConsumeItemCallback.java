@@ -9,6 +9,7 @@ import net.minecraft.util.ActionResult;
 
 public interface ConsumeItemCallback {
 
+    //gets called the same time as an item gets consumed
     Event<ConsumeItemCallback> EVENT = EventFactory.createArrayBacked(ConsumeItemCallback.class,
             (listeners) -> (stack, user) -> {
                 for (ConsumeItemCallback listener : listeners) {

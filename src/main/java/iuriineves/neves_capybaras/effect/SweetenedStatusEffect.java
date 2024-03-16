@@ -37,6 +37,7 @@ public class SweetenedStatusEffect extends StatusEffect {
         ConsumeItemCallback.EVENT.register((itemStack, user) -> {
             if (user == player && player.hasStatusEffect(ModStatusEffects.SWEETENED)) {
 
+                // check for golden and enchanted golden apple for buffed status effects
                 if (itemStack.getItem() == Items.GOLDEN_APPLE) {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 1));
                 }
@@ -45,7 +46,8 @@ public class SweetenedStatusEffect extends StatusEffect {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 4));
                 }
 
-                player.getHungerManager().add((itemStack.getItem().getFoodComponent().getHunger() / 4), 0.3f);
+                // 1.5x food logic
+                player.getHungerManager().add((itemStack.getFoodComponent().getHunger() / 4), 0.3f);
             }
             return ActionResult.SUCCESS;
         });
