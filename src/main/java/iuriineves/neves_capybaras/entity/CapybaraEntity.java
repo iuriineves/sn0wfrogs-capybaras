@@ -1,14 +1,10 @@
 package iuriineves.neves_capybaras.entity;
 
-import iuriineves.neves_capybaras.NevesCapybaras;
-import iuriineves.neves_capybaras.entity.ai.SwimBelowSurfaceGoal;
 import iuriineves.neves_capybaras.init.ModEntities;
 import iuriineves.neves_capybaras.init.ModItems;
 import iuriineves.neves_capybaras.init.ModSoundEvents;
-import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.MovementType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -20,7 +16,6 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -29,7 +24,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -46,6 +40,7 @@ import java.util.Objects;
 
 public class CapybaraEntity extends AnimalEntity implements GeoEntity {
 
+    // mandarin on head data tracker
     public static final TrackedData<Boolean> MANDARIN = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     protected final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("walk");
@@ -104,6 +99,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
 
     @Override
     public void travel(Vec3d movementInput) {
+        // increase speed if on water
         if (this.isTouchingWater()) {
             this.updateVelocity(0.1f, movementInput);
         }
@@ -126,6 +122,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     @Override
     public ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand) {
 
+        //mandarin on head logic
         if (hasMandarin() && player.isSneaking()) {
             if (player.getWorld().isClient()) player.swingHand(Hand.MAIN_HAND);
 
@@ -185,7 +182,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     @Nullable
     @Override
     public CapybaraEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return (CapybaraEntity) ModEntities.CAPYBARA.create(world);
+        return ModEntities.CAPYBARA.create(world);
     }
 
     @Override
