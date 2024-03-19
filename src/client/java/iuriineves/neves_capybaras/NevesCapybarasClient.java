@@ -18,6 +18,7 @@ public class NevesCapybarasClient implements ClientModInitializer {
 		EntityRendererRegistry.register(ModEntities.CAPYBARA, CapybaraEntityRenderer::new);
 
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANDARIN_BUSH_SAPLING, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_MANDARIN_BUSH_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANDARIN_LEAVES_BLOCK, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANDARIN_LEAVES_WITH_FLOWER_BLOCK, RenderLayer.getCutout());
 

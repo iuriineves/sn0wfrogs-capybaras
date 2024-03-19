@@ -1,10 +1,14 @@
 package iuriineves.neves_capybaras.entity;
 
+import com.google.common.collect.ImmutableList;
+import iuriineves.neves_capybaras.NevesCapybaras;
 import iuriineves.neves_capybaras.init.ModEntities;
 import iuriineves.neves_capybaras.init.ModItems;
 import iuriineves.neves_capybaras.init.ModSoundEvents;
+import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -24,34 +28,63 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.model.DefaultedEntityGeoModel;
+import software.bernie.geckolib.model.data.EntityModelData;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.List;
 import java.util.Objects;
 
 public class CapybaraEntity extends AnimalEntity implements GeoEntity {
 
-    // mandarin on head data tracker
+    public static final List<Type> NATURAL_TYPES = ImmutableList.of(Type.BROWN, Type.DARK, Type.RED);
+
     public static final TrackedData<Boolean> MANDARIN = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<String> TYPE = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.STRING);
 
     protected final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("walk");
     protected final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+
+    Type getRandomNaturalType(Random random) {
+        return NATURAL_TYPES.get(random.nextInt(NATURAL_TYPES.size()));
+    }
+
+    public Identifier getCapybaraTexture() {
+        return this.getCapybaraType().capybaraTexture;
+    }
+
+    public Type getCapybaraType() {
+        return Type.byName(this.dataTracker.get(TYPE));
+    }
+
+    public void setCapybaraType(Type type) {
+        this.dataTracker.set(TYPE, type.toString());
+    }
 
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
 
         this.dataTracker.startTracking(MANDARIN, false);
+        this.dataTracker.startTracking(TYPE, "");
     }
 
     @Override
@@ -59,19 +92,38 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
         super.writeCustomDataToNbt(nbt);
 
         nbt.putBoolean("Mandarin", this.hasMandarin());
+        nbt.putString("CapybaraType", this.getCapybaraType().toString());
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
+        NevesCapybaras.LOGGER.info(String.valueOf(Type.valueOf(nbt.getString("CapybaraType"))));
 
         if (nbt.contains("Mandarin")) {
             this.setMandarin(nbt.getBoolean("Mandarin"));
+        }
+
+        if (nbt.contains("CapybaraType")) {
+            this.setCapybaraType(Type.byName(nbt.getString("CapybaraType")));
         }
     }
 
     public CapybaraEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    @Override
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+
+        if (world.getRandom().nextInt(100) == 0) {
+            this.setCapybaraType(Type.ALBINO);
+        } else {
+            this.setCapybaraType(getRandomNaturalType(world.getRandom()));
+        }
+
+
+        return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
     }
 
     public static DefaultAttributeContainer.Builder createCapybaraAttributes() {
@@ -147,6 +199,8 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     }
 
     public void setMandarin(boolean mandarin) {
+
+        NevesCapybaras.LOGGER.info(this.getCapybaraType().toString());
         this.dataTracker.set(MANDARIN, mandarin);
     }
 
@@ -182,7 +236,10 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     @Nullable
     @Override
     public CapybaraEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.CAPYBARA.create(world);
+        CapybaraEntity capybaraEntity = ModEntities.CAPYBARA.create(world);
+        assert capybaraEntity != null;
+        capybaraEntity.setCapybaraType(this.getCapybaraType());
+        return capybaraEntity;
     }
 
     @Override
@@ -193,5 +250,26 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     @Override
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         return super.interactMob(player, hand);
+    }
+
+    public enum Type {
+        RED(new Identifier(NevesCapybaras.MOD_ID, "textures/entity/red_capybara.png")),
+        ALBINO(new Identifier(NevesCapybaras.MOD_ID, "textures/entity/albino_capybara.png")),
+        BROWN(new Identifier(NevesCapybaras.MOD_ID, "textures/entity/brown_capybara.png")),
+        DARK(new Identifier(NevesCapybaras.MOD_ID, "textures/entity/dark_capybara.png"));
+
+        public final Identifier capybaraTexture;
+        Type(Identifier capybaraTexture) {
+            this.capybaraTexture = capybaraTexture;
+        }
+
+        public static Type byName(String name) {
+            for (Type type : values()) {
+                if (type.name().equals(name)) {
+                    return type;
+                }
+            }
+            return Type.RED;
+        }
     }
 }

@@ -1,12 +1,11 @@
 package iuriineves.neves_capybaras.block;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import iuriineves.neves_capybaras.block_entity.ThermalSpringBlockEntity;
 import iuriineves.neves_capybaras.init.ModBlockEntities;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import iuriineves.neves_capybaras.init.ModBlocks;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -16,9 +15,21 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ThermalSpringBlock extends Block implements BlockEntityProvider {
+public class ThermalSpringBlock extends BlockWithEntity implements BlockEntityProvider {
+
+    public static final MapCodec<ThermalSpringBlock> CODEC = ThermalSpringBlock.createCodec(ThermalSpringBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
+    }
     public ThermalSpringBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 
     @Nullable
@@ -27,19 +38,10 @@ public class ThermalSpringBlock extends Block implements BlockEntityProvider {
         return new ThermalSpringBlockEntity(pos, state);
     }
 
-    @Override
-    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        Vec3d currentMotion = entity.getVelocity();
-
-        entity.setVelocity(currentMotion.x, 10, currentMotion.z);
-
-        super.onSteppedOn(world, pos, state, entity);
-    }
-
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if (type != ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY) return null;
-        return ThermalSpringBlockEntity::tick;
+        return validateTicker(type, ModBlockEntities.THERMAL_SPRING_BLOCK_ENTITY, ThermalSpringBlockEntity::tick);
+
     }
 }

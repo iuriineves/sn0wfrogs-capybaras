@@ -2,13 +2,11 @@ package iuriineves.neves_capybaras.init;
 
 import iuriineves.neves_capybaras.NevesCapybaras;
 import iuriineves.neves_capybaras.block.ThermalSpringBlock;
-import iuriineves.neves_capybaras.world.tree.MandarinBushSaplingGenerator;
+import iuriineves.neves_capybaras.world.tree.ModSaplingGenerators;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -25,7 +23,8 @@ public interface ModBlocks {
     LeavesBlock MANDARIN_LEAVES_BLOCK = createBlock("mandarin_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).nonOpaque()), true);
     LeavesBlock MANDARIN_LEAVES_WITH_FLOWER_BLOCK = createBlock("mandarin_leaves_with_flower", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).nonOpaque()), true);
 
-    SaplingBlock MANDARIN_BUSH_SAPLING = createBlock("mandarin_bush_sapling", new SaplingBlock(new MandarinBushSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()), true);
+    SaplingBlock MANDARIN_BUSH_SAPLING = createBlock("mandarin_bush_sapling", new SaplingBlock(ModSaplingGenerators.MANDARIN_BUSH, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()), true);
+    FlowerPotBlock POTTED_MANDARIN_BUSH_SAPLING = createBlock("potted_mandarin_bush_sapling", new FlowerPotBlock(MANDARIN_BUSH_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_OAK_SAPLING).nonOpaque()), false);
 
     private static <T extends Block> T createBlock(String name, T block, boolean createItem) {
         BLOCKS.put(block, new Identifier(NevesCapybaras.MOD_ID, name));
