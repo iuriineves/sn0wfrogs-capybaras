@@ -450,21 +450,21 @@
 							"vector": [0, 0, 0]
 						},
 						"0.0833": {
-							"vector": [0, 0.15, 0],
+							"vector": [0, -0.1, 0],
 							"easing": "easeInQuad"
 						},
 						"0.2083": {
 							"vector": [0, 0, 0],
 							"easing": "easeInCubic"
 						},
-						"0.5833": {
+						"0.5417": {
 							"vector": [0, 0, 0]
 						},
-						"0.625": {
-							"vector": [0, 0.15, 0],
+						"0.5833": {
+							"vector": [0, -0.1, 0],
 							"easing": "easeInQuad"
 						},
-						"0.75": {
+						"0.7083": {
 							"vector": [0, 0, 0],
 							"easing": "easeInCubic"
 						}

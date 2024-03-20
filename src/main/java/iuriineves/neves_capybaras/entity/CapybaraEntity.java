@@ -1,15 +1,15 @@
 package iuriineves.neves_capybaras.entity;
 
 import com.google.common.collect.ImmutableList;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import iuriineves.neves_capybaras.NevesCapybaras;
 import iuriineves.neves_capybaras.init.ModEntities;
 import iuriineves.neves_capybaras.init.ModItems;
 import iuriineves.neves_capybaras.init.ModSoundEvents;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.brain.Brain;
+import net.minecraft.entity.ai.brain.task.StayAboveWaterTask;
+import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -19,40 +19,53 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.tslat.smartbrainlib.api.SmartBrainOwner;
+import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
+import net.tslat.smartbrainlib.api.core.SmartBrainProvider;
+import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
+import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.look.LookAtTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.BreedWithPartner;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.move.FloatToSurfaceOfFluid;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.move.MoveToWalkTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetPlayerLookTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
+import net.tslat.smartbrainlib.api.core.sensor.ExtendedSensor;
+import net.tslat.smartbrainlib.api.core.sensor.vanilla.HurtBySensor;
+import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.model.DefaultedEntityGeoModel;
-import software.bernie.geckolib.model.data.EntityModelData;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.List;
 import java.util.Objects;
 
-public class CapybaraEntity extends AnimalEntity implements GeoEntity {
+public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrainOwner<CapybaraEntity> {
 
     public static final List<Type> NATURAL_TYPES = ImmutableList.of(Type.BROWN, Type.DARK, Type.RED);
 
@@ -61,7 +74,31 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
 
     protected final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("walk");
     protected final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
+    protected final RawAnimation SIT_ANIM = RawAnimation.begin().thenLoop("sit");
+    protected final RawAnimation SIT_IDLE_ANIM = RawAnimation.begin().thenLoop("sit_idle");
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+
+    public CapybaraEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
+    public static DefaultAttributeContainer.Builder createCapybaraAttributes() {
+        return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 12.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32);
+    }
+
+    @Override
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+
+        if (world.getRandom().nextInt(100) == 0) {
+            this.setCapybaraType(Type.ALBINO);
+        } else {
+            this.setCapybaraType(getRandomNaturalType(world.getRandom()));
+        }
+
+
+        return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+    }
+
 
     Type getRandomNaturalType(Random random) {
         return NATURAL_TYPES.get(random.nextInt(NATURAL_TYPES.size()));
@@ -109,27 +146,6 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
         }
     }
 
-    public CapybaraEntity(EntityType<? extends AnimalEntity> entityType, World world) {
-        super(entityType, world);
-    }
-
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-
-        if (world.getRandom().nextInt(100) == 0) {
-            this.setCapybaraType(Type.ALBINO);
-        } else {
-            this.setCapybaraType(getRandomNaturalType(world.getRandom()));
-        }
-
-
-        return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-    }
-
-    public static DefaultAttributeContainer.Builder createCapybaraAttributes() {
-        return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 12.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32);
-    }
-
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
@@ -158,18 +174,6 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
         super.travel(movementInput);
     }
 
-    @Override
-    protected void initGoals() {
-        this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25));
-        this.goalSelector.add(3, new AnimalMateGoal(this, 1.0));
-        this.goalSelector.add(4, new TemptGoal(this, 1.2, Ingredient.ofItems(Items.MELON_SLICE), false));
-        this.goalSelector.add(5, new FollowParentGoal(this, 1.1));
-        this.goalSelector.add(6, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(6, new WanderAroundGoal(this, 1.0));
-        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
-        this.goalSelector.add(8, new LookAroundGoal(this));
-    }
 
     @Override
     public ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand) {
@@ -219,11 +223,6 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     }
 
     @Override
-    public double getSwimHeight() {
-        return 0.7D;
-    }
-
-    @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "Walking", 0, this::walkAnimController));
     }
@@ -250,6 +249,48 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity {
     @Override
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         return super.interactMob(player, hand);
+    }
+
+    @Override
+    protected Brain.Profile<?> createBrainProfile() {
+        return new SmartBrainProvider<>(this);
+    }
+
+    @Override
+    protected void mobTick() {
+        tickBrain(this);
+    }
+
+    @Override
+    public List<? extends ExtendedSensor<? extends CapybaraEntity>> getSensors() {
+        return ObjectArrayList.of(
+                new NearbyLivingEntitySensor<>(),
+                new HurtBySensor<>()
+        );
+    }
+
+    @Override
+    public BrainActivityGroup<? extends CapybaraEntity> getCoreTasks() {
+        return BrainActivityGroup.coreTasks(
+                new FloatToSurfaceOfFluid<>(),
+                new LookAtTarget<>(),
+                new MoveToWalkTarget<>(),
+                new BreedWithPartner<>()
+        );
+    }
+
+    @Override
+    public BrainActivityGroup<? extends CapybaraEntity> getIdleTasks() {
+        return BrainActivityGroup.idleTasks(
+                new FirstApplicableBehaviour<CapybaraEntity>(
+                        new SetPlayerLookTarget<>(),
+                        new SetRandomLookTarget<>()
+                ),
+                new OneRandomBehaviour<>(
+                        new SetRandomWalkTarget<>(),
+                        new Idle<>().runFor(entity -> entity.getRandom().nextBetween(30, 60))
+                )
+        );
     }
 
     public enum Type {
