@@ -25,22 +25,8 @@ public class CapybaraEntityRenderer extends GeoEntityRenderer<CapybaraEntity> {
     public void preRender(MatrixStack poseStack, CapybaraEntity animatable, BakedGeoModel model, VertexConsumerProvider bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         if (animatable.isBaby()) {
             poseStack.scale(0.5f, 0.5f, 0.5f);
-
-            Optional<GeoBone> head = model.getBone("head");
-            head.ifPresent(geoBone -> {
-                geoBone.setScaleX(1.5f);
-                geoBone.setScaleY(1.5f);
-                geoBone.setScaleZ(1.5f);
-            });
         } else {
             poseStack.scale(1f, 1f, 1f);
-
-            Optional<GeoBone> head = model.getBone("head");
-            head.ifPresent(geoBone -> {
-                geoBone.setScaleX(1f);
-                geoBone.setScaleY(1f);
-                geoBone.setScaleZ(1f);
-            });
         }
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, packedLight, packedOverlay, packedLight, red, green, blue, alpha);
     }

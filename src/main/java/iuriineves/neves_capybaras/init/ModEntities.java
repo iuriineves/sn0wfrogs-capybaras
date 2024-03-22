@@ -25,7 +25,7 @@ public interface ModEntities {
             FabricEntityTypeBuilder
                     .create(SpawnGroup.CREATURE, CapybaraEntity::new)
                     .entityFactory(CapybaraEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1f))
+                    .dimensions(EntityDimensions.changing(0.8f, 1f))
                     .build()
     );
 
