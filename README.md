@@ -3,7 +3,7 @@
 
 [![Available on Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/nevescapybaras)
 ## Requirements
-[<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" height="150"/>](https://modrinth.com/mod/fabric-api)
+[<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" height="50"/>](https://modrinth.com/mod/fabric-api)
 [<img src="https://camo.githubusercontent.com/56f1b4c1016d7698f0bf00e1305c1a22123d819a8fb43181d8cb8139b0d3136d/68747470733a2f2f692e696d6775722e636f6d2f4b42396b5259562e706e67" alt="Requires Geckolib" width="200"/>]([https://modrinth.com/mod/fabric-api](https://modrinth.com/mod/geckolib))
 
 ## Video Showcase [NOT OUT YET]
