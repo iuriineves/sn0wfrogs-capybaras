@@ -2,6 +2,7 @@
 ### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
 [<img src="https://github.com/iuriineves/modding-badges/blob/main/Available%20on%20Modrinth.png" alt="Available on Modrinth" width="200"/>](https://modrinth.com/mod/nevescapybaras)
+[<img src="https://github.com/iuriineves/modding-badges/blob/main/Support%20me%20on%20Ko-Fi.png?raw=true" width="236"/>](https://ko-fi.com/iuriineves)
 
 ## Requirements
 
