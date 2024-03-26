@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:sugar"
+    },
+    "title": {
+      "translate": "advancement.neves_capybaras.oh_sweetie.title",
+      "fallback": "Oh sweetie..."
+    },
+    "description": {
+      "translate": "advancement.neves_capybaras.oh_sweetie.description",
+      "fallback": "Consume a mandarin and taste the sweetness"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "eat_mandarin": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "neves_capybaras:mandarin"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "eat_mandarin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,42 @@
+{
+  "name": "neves_capybaras:capybaras",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "neves_capybaras:capybaras/albino_capybara",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 100,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "neves_capybaras:capybaras/red_capybara",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 100,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "neves_capybaras:capybaras/brown_capybara",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 100,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "neves_capybaras:capybaras/dark_capybara",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}
