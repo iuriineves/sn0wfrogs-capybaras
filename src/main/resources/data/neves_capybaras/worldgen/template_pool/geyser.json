@@ -1,0 +1,33 @@
+{
+  "name": "neves_capybaras:geyser",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "neves_capybaras:geyser/geyser_1",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "neves_capybaras:geyser/geyser_2",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "neves_capybaras:geyser/geyser_3",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}
