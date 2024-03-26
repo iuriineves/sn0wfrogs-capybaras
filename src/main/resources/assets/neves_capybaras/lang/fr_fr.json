@@ -1,0 +1,17 @@
+{
+  "entity.neves_capybaras.capybara": "Capybara",
+  "item.neves_capybaras.capybara_spawn_egg": "Oeuf d'Apparition de Capybara",
+  "block.neves_capybaras.thermal_spring": "Sources thermales",
+  "block.neves_capybaras.mandarin_leaves": "Feuilles de Mandarines",
+  "block.neves_capybaras.mandarin_leaves_with_flower": "Arbre de Mandarines en Floraison",
+  "item.neves_capybaras.mandarin": "Mandarine",
+  "item.neves_capybaras.mandarin_bush_sapling": "Pousse de Buisson de Mandarines",
+  "block.neves_capybaras.mandarin_bush_sapling": "Pousse de Buisson de Mandarines",
+
+  "effect.neves_capybaras.sweetened": "Sucré",
+
+  "subtitles.neves_capybaras.attacked": "Capybara aboille",
+  "subtitles.neves_capybaras.ambient":  "Capybara couine",
+
+  "itemGroup.neves_capybaras.capy_group": "Les Capybaras de Neve"
+}
