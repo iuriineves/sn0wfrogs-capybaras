@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "item": "neves_capybaras:mandarin"
+    },
+    "title": {
+      "translate": "advancement.neves_capybaras.the_new_black.title",
+      "fallback": "The new black"
+    },
+    "description": {
+      "translate": "advancement.neves_capybaras.the_new_black.description",
+      "fallback": "Place a mandarin on a capybara's head"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "place_mandarin": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "neves_capybaras:mandarin"
+              ]
+            }
+          }
+        },
+        "entity": {
+          "type": "neves_capybaras:capybara"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "place_mandarin"
+    ]
+  ]
+}

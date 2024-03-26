@@ -19,6 +19,7 @@ public class CapybaraEntityRenderer extends GeoEntityRenderer<CapybaraEntity> {
         super(context, new CapybaraEntityModel());
 
         addRenderLayer(new CapybaraMandarinLayer(this));
+        addRenderLayer(new CapybaraFedoraLayer(this));
     }
 
     @Override

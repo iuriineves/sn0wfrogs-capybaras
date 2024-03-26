@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "neves_capybaras:mandarin_leaves_with_flower",
+              "name": "neves_capybaras:flowering_mandarin_leaves",
               "conditions": [
                 {
                   "condition": "minecraft:any_of",

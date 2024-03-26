@@ -112,9 +112,9 @@
       },
       {
         "type": "neves_capybaras:capybara",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 20
+        "maxCount": 12,
+        "minCount": 8,
+        "weight": 100
       }
     ],
     "misc": [],
