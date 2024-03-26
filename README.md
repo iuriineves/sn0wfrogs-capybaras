@@ -1,13 +1,15 @@
 ![Neves' Capybaras Logo](https://cdn.modrinth.com/data/cached_images/24f94d5b6d303fa5e4337a6fd6951a9889918b28.png)
 ### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
-[<img src="https://raw.githubusercontent.com/iuriineves/modding-badges/main/PNG/Available%20on%20Modrinth.png" alt="Requires Fabric API" height="60"/>](https://modrinth.com/mod/nevescapybaras)
+[<img src="https://github.com/iuriineves/modding-badges/blob/main/Available%20on%20Modrinth.png" alt="Available on Modrinth" width="200"/>](https://modrinth.com/mod/nevescapybaras)
+[<img src="https://github.com/iuriineves/modding-badges/blob/main/Support%20me%20on%20Ko-Fi.png?raw=true" width="236"/>](https://ko-fi.com/iuriineves)
 
 ## Requirements
 
-[<img src="https://raw.githubusercontent.com/iuriineves/modding-badges/main/PNG/Requires%20Fabric%20API.png" alt="Requires Fabric API" height="60"/>](https://modrinth.com/mod/fabric-api)
-[<img src="https://raw.githubusercontent.com/iuriineves/modding-badges/main/PNG/Requires%20GeckoLib.png" alt="Requires Fabric API" height="60"/>](https://modrinth.com/mod/geckolib)
-[<img src="https://raw.githubusercontent.com/iuriineves/modding-badges/main/PNG/Requires%20SmartBrainLib.png" alt="Requires Fabric API" height="60"/>](https://modrinth.com/mod/smartbrainlib)
+[<img src="https://github.com/iuriineves/modding-badges/blob/main/Requires%20Fabric%20API.png?raw=true" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
+[<img src="https://github.com/iuriineves/modding-badges/blob/main/Requires%20GeckoLib.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/geckolib)
+[<img src="https://github.com/iuriineves/modding-badges/blob/main/Requires%20SBL.png" alt="Requires Fabric API" width="236"/>](https://modrinth.com/mod/smartbrainlib)
+
 
 ## Video Showcase [NOT OUT YET]
 
