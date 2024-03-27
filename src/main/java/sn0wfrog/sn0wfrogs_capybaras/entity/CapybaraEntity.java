@@ -2,6 +2,8 @@ package sn0wfrog.sn0wfrogs_capybaras.entity;
 
 import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.entity.mob.WaterCreatureEntity;
+import net.minecraft.predicate.entity.EntityPredicates;
 import sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras;
 import sn0wfrog.sn0wfrogs_capybaras.entity.ai.CapybaraWalk;
 import sn0wfrog.sn0wfrogs_capybaras.entity.ai.FollowTemptationFixed;
@@ -70,6 +72,7 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -85,7 +88,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
     private static final TrackedData<String> TYPE = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.STRING);
     public static final TrackedData<Long> LAST_POSE_TICK = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.LONG);
     public static final TrackedData<Boolean> STATIONARY = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public static final TrackedData<Boolean> RIDING = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    public static final TrackedData<Boolean> TEMPTED = DataTracker.registerData(CapybaraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     protected final RawAnimation WALK_ANIM = RawAnimation.begin().thenLoop("walk");
     protected final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
@@ -125,7 +128,6 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
 
                     capybaraEntity.setCapybaraType(getRandomNaturalType(world.getRandom()));
                     capybaraEntity.startRiding(lastCapybaraEntity);
-                    capybaraEntity.setRiding(true);
                 }
             }
         } else {
@@ -142,7 +144,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         this.dataTracker.startTracking(TYPE, "");
         this.dataTracker.startTracking(LAST_POSE_TICK, 0L);
         this.dataTracker.startTracking(STATIONARY, true);
-        this.dataTracker.startTracking(RIDING, false);
+        this.dataTracker.startTracking(TEMPTED, false);
     }
 
     @Override
@@ -230,12 +232,12 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         this.dataTracker.set(STATIONARY, stationary);
     }
 
-    public boolean isRiding() {
-        return this.dataTracker.get(RIDING);
+    public boolean isTempted() {
+        return this.dataTracker.get(TEMPTED);
     }
 
-    public void setRiding(boolean riding) {
-        this.dataTracker.set(RIDING, riding);
+    public void setTempted(boolean tempted) {
+        this.dataTracker.set(TEMPTED, tempted);
     }
 
     @Nullable
@@ -278,9 +280,8 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
     @Override
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
 
-        if (isRiding()) {
-            this.setRiding(false);
-            this.stopRiding();
+        if (this.getFirstPassenger() != null) {
+            this.getFirstPassenger().stopRiding();
             return ActionResult.SUCCESS;
         }
 
@@ -308,6 +309,24 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         }
 
         return super.interactMob(player, hand);
+    }
+
+    @Override
+    public void tick() {
+        List<Entity> list = this.getWorld().getOtherEntities(this, this.getBoundingBox().expand(0.2f, -0.01f, 0.2f), EntityPredicates.canBePushedBy(this));
+        if (!list.isEmpty()) {
+            if (!(this.hasMandarin()) || !(this.isTempted())) return;
+
+            boolean bl = !this.getWorld().isClient && !(this.getControllingPassenger() instanceof PlayerEntity);
+            for (Entity entity : list) {
+                if (entity.hasPassenger(this)) continue;
+                if (bl && this.getPassengerList().isEmpty() && !entity.hasVehicle() && entity instanceof LivingEntity && !(entity instanceof CapybaraEntity) && !(entity instanceof PlayerEntity)) {
+                    entity.startRiding(this);
+                    continue;
+                }
+                this.pushAwayFrom(entity);
+            }
+        }
     }
 
     @Nullable
