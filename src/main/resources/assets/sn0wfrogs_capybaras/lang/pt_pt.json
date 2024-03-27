@@ -4,6 +4,7 @@
   "block.sn0wfrogs_capybaras.thermal_spring": "Fonte termal",
   "block.sn0wfrogs_capybaras.mandarin_leaves": "Folhas de mandarim",
   "block.sn0wfrogs_capybaras.flowering_mandarin_leaves": "Folhas de mandarim floridas",
+  "block.sn0wfrogs_capybaras.mandarin_flowers": "Flores de mandarim",
   "item.sn0wfrogs_capybaras.mandarin": "Mandarim",
   "item.sn0wfrogs_capybaras.mandarin_bush_sapling": "Rebento de arbusto de mandarim",
   "block.sn0wfrogs_capybaras.mandarin_bush_sapling": "Rebento de arbusto de mandarim",
@@ -17,6 +18,9 @@
 
   "subtitles.sn0wfrogs_capybaras.attacked": "Capivara ladra",
   "subtitles.sn0wfrogs_capybaras.ambient":  "Capivara guincha",
+
+  "subtitles.sn0wfrogs_capybaras.geyser": "Géiser jorra água",
+  "subtitles.sn0wfrogs_capybaras.thermal_spring": "Água efervesce",
 
   "itemGroup.sn0wfrogs_capybaras.capy_group": "Sn0wfrog's Capybaras"
 }
