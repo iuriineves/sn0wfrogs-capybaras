@@ -29,46 +29,52 @@
 
 ## Features
 ### Capybaras:
-- Capybaras are new mobs found in swamps, mangrove swamps and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
+- Capybaras are new mobs found in swamps, mangrove swamps, and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
+- Capybaras come in four different varieties. The most common are the red capybara, the brown capybara, and the choco capybara (dark brown). Besides these three variants, you can also find albino capybaras (personally my favorites) with a spawn chance of 1% (so one every 100 capybaras) and capybara towers, with a 1% spawn chance.
 - Capybaras will follow you if you hold a melon slice. It also allows you to breed them.
-- Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water in order to survive.
-- Capybaras are really fast swimmers. If you grab a melon slice in front of them while swimming, they'll catch up to you in a heartbeat.
-### Capybaras' Paradise:
-- A new structure found in mangrove swamps. Here, capybaras spawn more often than in the rest of the swamp, as well as staying closer to these structures.
-- You'll find lots of watermelons scattered around, as well as small ponds with thermal springs, currently being the only way to obtain this new block.
+- You can place mandarins on capybaras heads. This can be purely visual, but if you tempt them with a melon slice, and they collide with an entity, this entity will ride the capybara (pretty much like a boat). To dismount it, right-click the capybara. If you want to remove the mandarin, right-click the capybara while sneaking when no entity is riding them. Other capybaras or players can't ride capybaras.
+- Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water to survive.
+- Capybaras are swift swimmers. If you grab a melon slice in front of them while swimming, they'll catch up to you in a heartbeat.
 ### Mandarins:
 - Mandarin bush:
-  - Despite being totally not realistic, mandarin bushes are the way to get the new fruit.
-  - You can find mandarins, mandarin leaves and flowering mandarin leaves in these bushes.
-  - These bushes only spawn on the plains biome, so make sure to gather some saplings to plant them anywhere else you might want to have it.
+  - Despite being unrealistic, mandarin bushes are the way to get the new fruit.
+  - You can find mandarins, mandarin leaves, flowering mandarin leaves, and mandarin flowers in these bushes.
+  - These bushes only spawn on the plains biome, so gather some saplings to plant them anywhere else you might want to have them.
 - Mandarin:
-  - A new food type. Eating this will give you 2 hunger points + the "Sweetened" status effect for 5 seconds.
-  - You can put a mandarin on a capybara's head by right-clicking them while holding a mandarin. To remove it, just right-click the capybara while sneaking, and the mandarin will drop right off.
+  - A new food type. Eating this will give you two hunger points + the "Sweetened" status effect for 5 seconds.
+  - You can put a mandarin on a capybara's head by right-clicking them while holding a mandarin. Right-click the capybara while sneaking to remove it, and the mandarin will drop right off.
 - Mandarin leaves:
-  - A new decorative block that when broken, has a chance at dropping either mandarins, a mandarin bush sapling, or sticks.
-  - This block has a second variant, the flowering mandarin leaves, only being visually different.
+  - A new decorative block that, when broken, has a chance of dropping either a mandarin, a mandarin bush sapling, or sticks. If mined with shears or silk touch, the block itself will drop.
+  - This block has a second variant, the flowering mandarin leaves, which drop mandarin flowers.
+- Mandarin flowers:
+  - A new decorative block that works like the glow lichen (without the glow, obviously), but with the flowering mandarin leaves' flowers as its texture.
 
 ### Thermal springs:
-- A new decorative block. This block emits steam particles from the water blocks above it in a 5 block radius. 
-- If there's water below it, the thermal spring essentially becomes a geyser, shooting steam particles up.
-- The only way to find this block is to find a Capybaras' Paradise structure, where the ponds will have this block at the bottom of them.
-- The particles are a bit performance intensive, so use these sparingly (spacing them 10 block apart should give you the most use out of them).
+- A new decorative block. This block emits steam particles from the water blocks above it in a 5-block radius. 
+- If there's water below it, the thermal spring becomes a geyser, shooting steam particles up. If an entity steps on it, it will be sent up at high velocities (this includes players, mobs, and projectiles). If you want to avoid the uplift, sneak while walking on it.
+- The only way to find this block is to find a Capybaras' Paradise or a geyser.
+- The particles are a bit performance intensive, so use these sparingly (spacing them ten blocks apart should give you the most use out of them).
+### Capybaras' Paradise:
+- A new structure found in mangrove swamps. Here, capybaras spawn more often than in the rest of the swamp and stay closer to these structures.
+- You'll find many watermelons scattered around and small ponds with thermal springs at the bottom.
+### Geysers:
+- A new structure found in swamps, mangrove swamps, and mountains. This is an alternative way to gather thermal spring blocks.
 ### Sweetened:
-- A new effect. While having this effect, all food gives you 50% more hunger points (1.5x). For golden apples and enchanted golden apples, as well as the 50% more hunger points, you'll also get 2 more absorption hearts (4 health points).
-- This effect is only obtainable through eating mandarins, and it only has a single level.
+- A new effect. While having this effect, all food gives you 50% more hunger points (1.5x). For golden apples and enchanted golden apples, as well as the 50% more hunger points, you'll also get two more absorption hearts (4 health points).
+- This effect is only obtainable through eating mandarins and has only a single level.
 
 ## FAQ
 
 **Can I include this mod in a modpack?**
 
-**Yes**: You can, no need for approval. However, I would love to know what modpacks are using this mod, so don't hesitate to message me on discord! (sn0wfrog).
+**Yes**: You can; no need for approval. However, I would love to know what mod packs use this mod, so don't hesitate to message me on Discord! (sn0wfrog).
 
 **I found a bug! What do I do?**
 
-**Open an issue**: Just make an issue on this mod's github page and I'll try to fix is as soon as I can. Make sure to explain how to reproduce the bug as well.
+**Open an issue**: Make an issue on this mod's GitHub page, and I'll try to fix it as soon as possible. Make sure to explain how to reproduce the bug as well.
 
-**Can you port this mod to X modloader?**
+**Can you port this mod to X mod loader?**
 
-**No**: I only mod for the Fabric loader, so other modloader versions are not going to happen. Sorry! (A quilt version might happen, though)
+**No**: I only mod for the Fabric loader, so other mod loader versions will not happen. Sorry! (A quilt version might happen, though)
 
 ###### Copyright (c) 2024 sn0wfrog
