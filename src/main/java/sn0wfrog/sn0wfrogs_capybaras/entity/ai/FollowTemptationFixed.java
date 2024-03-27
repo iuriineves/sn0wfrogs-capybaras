@@ -13,6 +13,7 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.tslat.smartbrainlib.api.core.behaviour.ExtendedBehaviour;
 import net.tslat.smartbrainlib.util.BrainUtils;
+import sn0wfrog.sn0wfrogs_capybaras.entity.CapybaraEntity;
 
 import java.util.List;
 import java.util.function.BiFunction;
@@ -31,11 +32,11 @@ import java.util.function.BiPredicate;
  *     <li>1x speed modifier while following</li>
  * </ul>
  */
-public class FollowTemptationFixed<E extends PathAwareEntity> extends ExtendedBehaviour<E> {
+public class FollowTemptationFixed<E extends CapybaraEntity> extends ExtendedBehaviour<E> {
     private static final List<Pair<MemoryModuleType<?>, MemoryModuleState>> MEMORY_REQUIREMENTS = ObjectArrayList.of(Pair.of(MemoryModuleType.LOOK_TARGET, MemoryModuleState.REGISTERED), Pair.of(MemoryModuleType.WALK_TARGET, MemoryModuleState.REGISTERED), Pair.of(MemoryModuleType.TEMPTATION_COOLDOWN_TICKS, MemoryModuleState.VALUE_ABSENT), Pair.of(MemoryModuleType.IS_TEMPTED, MemoryModuleState.REGISTERED), Pair.of(MemoryModuleType.TEMPTING_PLAYER, MemoryModuleState.VALUE_PRESENT), Pair.of(MemoryModuleType.IS_PANICKING, MemoryModuleState.REGISTERED), Pair.of(MemoryModuleType.BREED_TARGET, MemoryModuleState.REGISTERED));
 
     protected BiFunction<E, PlayerEntity, Float> speedMod = (entity, temptingPlayer) -> 1f;
-    protected BiPredicate<E, PlayerEntity> shouldFollow = (entity, temptingPlayer) -> (entity instanceof AnimalEntity) && !Boolean.TRUE.equals(BrainUtils.getMemory(entity, MemoryModuleType.IS_PANICKING));
+    protected BiPredicate<E, PlayerEntity> shouldFollow = (entity, temptingPlayer) -> (entity != null) && !Boolean.TRUE.equals(BrainUtils.getMemory(entity, MemoryModuleType.IS_PANICKING));
     protected BiFunction<E, PlayerEntity, Float> closeEnoughWhen = (owner, temptingPlayer) -> 2.5f;
     protected Object2IntFunction<E> temptationCooldown = entity -> 100;
 
@@ -105,6 +106,7 @@ public class FollowTemptationFixed<E extends PathAwareEntity> extends ExtendedBe
 
     @Override
     protected void start(E entity) {
+        entity.setTempted(true);
         BrainUtils.setMemory(entity, MemoryModuleType.IS_TEMPTED, true);
     }
 
@@ -125,6 +127,7 @@ public class FollowTemptationFixed<E extends PathAwareEntity> extends ExtendedBe
 
     @Override
     protected void stop(E entity) {
+        entity.setTempted(false);
         final int cooldownTicks = this.temptationCooldown.apply(entity);
 
         BrainUtils.setForgettableMemory(entity, MemoryModuleType.TEMPTATION_COOLDOWN_TICKS, cooldownTicks, cooldownTicks);
