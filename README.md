@@ -71,4 +71,4 @@
 
 **No**: I only mod for the Fabric loader, so other modloader versions are not going to happen. Sorry! (A quilt version might happen, though)
 
-###### Copyright (c) 2024 iuriineves
+###### Copyright (c) 2024 sn0wfrog
