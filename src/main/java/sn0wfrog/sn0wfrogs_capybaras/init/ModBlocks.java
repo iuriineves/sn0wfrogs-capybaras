@@ -25,6 +25,8 @@ public interface ModBlocks {
     SaplingBlock MANDARIN_BUSH_SAPLING = createBlock("mandarin_bush_sapling", new SaplingBlock(ModSaplingGenerators.MANDARIN_BUSH, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()), true);
     FlowerPotBlock POTTED_MANDARIN_BUSH_SAPLING = createBlock("potted_mandarin_bush_sapling", new FlowerPotBlock(MANDARIN_BUSH_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_OAK_SAPLING).nonOpaque()), false);
 
+    GlowLichenBlock MANDARIN_FLOWERS = createBlock("mandarin_flowers", new GlowLichenBlock(FabricBlockSettings.create().luminance(0).sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque()), true);
+
     private static <T extends Block> T createBlock(String name, T block, boolean createItem) {
         BLOCKS.put(block, new Identifier(Sn0wfrogsCapybaras.MOD_ID, name));
         if (createItem) {

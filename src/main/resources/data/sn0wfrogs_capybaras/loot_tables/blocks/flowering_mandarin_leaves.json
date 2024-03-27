@@ -58,6 +58,25 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "sn0wfrogs_capybaras:mandarin_flowers",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                },
+                {
+                  "condition": "minecraft:table_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "chances": [
+                    0.1,
+                    0.13,
+                    0.15,
+                    0.2
+                  ]
+                }
+              ]
             }
           ]
         }

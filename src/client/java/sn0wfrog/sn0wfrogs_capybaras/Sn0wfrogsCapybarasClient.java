@@ -20,6 +20,7 @@ public class Sn0wfrogsCapybarasClient implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_MANDARIN_BUSH_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANDARIN_LEAVES_BLOCK, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FLOWERING_MANDARIN_LEAVES_BLOCK, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANDARIN_FLOWERS, RenderLayer.getCutout());
 
 		ParticleFactoryRegistry.getInstance().register(Sn0wfrogsCapybaras.WATER_VAPOR, CampfireSmokeParticle.CosySmokeFactory::new);
 		ParticleFactoryRegistry.getInstance().register(Sn0wfrogsCapybaras.GEYSER, CloudParticle.CloudFactory::new);
