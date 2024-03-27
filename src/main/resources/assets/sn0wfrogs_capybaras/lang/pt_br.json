@@ -1,0 +1,22 @@
+{
+  "entity.sn0wfrogs_capybaras.capybara": "Capivara",
+  "item.sn0wfrogs_capybaras.capybara_spawn_egg": "Ovo de gerador de capivara",
+  "block.sn0wfrogs_capybaras.thermal_spring": "Fonte termal",
+  "block.sn0wfrogs_capybaras.mandarin_leaves": "Folhas de mandarim",
+  "block.sn0wfrogs_capybaras.flowering_mandarin_leaves": "Folhas de mandarim florescentes",
+  "item.sn0wfrogs_capybaras.mandarin": "Mandarim",
+  "item.sn0wfrogs_capybaras.mandarin_bush_sapling": "Muda de arbusto de mandarim",
+  "block.sn0wfrogs_capybaras.mandarin_bush_sapling": "Muda de arbusto de mandarim",
+
+  "effect.sn0wfrogs_capybaras.sweetened": "Adoçado",
+
+  "advancement.sn0wfrogs_capybaras.oh_sweetie.title": "Meu doce...",
+  "advancement.sn0wfrogs_capybaras.oh_sweetie.description": "Consuma um mandarim e saboreie a doçura",
+  "advancement.sn0wfrogs_capybaras.the_new_black.title": "O novo preto",
+  "advancement.sn0wfrogs_capybaras.the_new_black.description": "Coloque um mandarim na cabeça de uma capivara",
+
+  "subtitles.sn0wfrogs_capybaras.attacked": "Capivara late",
+  "subtitles.sn0wfrogs_capybaras.ambient":  "Capivara guincha",
+
+  "itemGroup.sn0wfrogs_capybaras.capy_group": "Neves' Capybaras"
+}

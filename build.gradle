@@ -30,7 +30,7 @@ loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"neves_capybaras" {
+		"sn0wfrogs_capybaras" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

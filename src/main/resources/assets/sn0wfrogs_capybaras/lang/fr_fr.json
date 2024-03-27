@@ -1,0 +1,22 @@
+{
+  "entity.sn0wfrogs_capybaras.capybara": "Capybara",
+  "item.sn0wfrogs_capybaras.capybara_spawn_egg": "Oeuf d'apparition de capybara",
+  "block.sn0wfrogs_capybaras.thermal_spring": "Source thermale",
+  "block.sn0wfrogs_capybaras.mandarin_leaves": "Feuilles de Mandarines",
+  "block.sn0wfrogs_capybaras.flowering_mandarin_leaves": "Feuilles de Mandarines en floraison",
+  "item.sn0wfrogs_capybaras.mandarin": "Mandarine",
+  "item.sn0wfrogs_capybaras.mandarin_bush_sapling": "Pousse de Buisson de Mandarines",
+  "block.sn0wfrogs_capybaras.mandarin_bush_sapling": "Pousse de Buisson de Mandarines",
+
+  "effect.sn0wfrogs_capybaras.sweetened": "Sucré",
+
+  "advancement.sn0wfrogs_capybaras.oh_sweetie.title": "Oh mon sucre...",
+  "advancement.sn0wfrogs_capybaras.oh_sweetie.description": "Mange une mandarine et découvre leur douceur",
+  "advancement.sn0wfrogs_capybaras.the_new_black.title": "The new black",
+  "advancement.sn0wfrogs_capybaras.the_new_black.description": "Met une mandarine sur la tête d'un capybara",
+
+  "subtitles.sn0wfrogs_capybaras.attacked": "Capybara aboie",
+  "subtitles.sn0wfrogs_capybaras.ambient":  "Capybara couine",
+
+  "itemGroup.sn0wfrogs_capybaras.capy_group": "Neves' Capybaras"
+}

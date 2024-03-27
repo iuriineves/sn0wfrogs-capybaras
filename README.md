@@ -1,14 +1,14 @@
 ![Neves' Capybaras Logo](https://cdn.modrinth.com/data/cached_images/24f94d5b6d303fa5e4337a6fd6951a9889918b28.png)
 ### A Fabric mod that adds Capybaras, the "coconut doggies", as your companionship!
 
-[<img src="https://github.com/iuriineves/modding-badges/blob/main/Available%20on%20Modrinth.png" alt="Available on Modrinth" width="200"/>](https://modrinth.com/mod/nevescapybaras)
-[<img src="https://github.com/iuriineves/modding-badges/blob/main/Support%20me%20on%20Ko-Fi.png?raw=true" width="236"/>](https://ko-fi.com/iuriineves)
+[<img src="https://github.com/sn0wfrog/modding-badges/blob/main/Available%20on%20Modrinth.png" alt="Available on Modrinth" width="200"/>](https://modrinth.com/mod/Sn0wfrogsCapybaras)
+[<img src="https://github.com/sn0wfrog/modding-badges/blob/main/Support%20me%20on%20Ko-Fi.png?raw=true" width="236"/>](https://ko-fi.com/iuriineves)
 
 ## Requirements
 
-[<img src="https://github.com/iuriineves/modding-badges/blob/main/Requires%20Fabric%20API.png?raw=true" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
-[<img src="https://github.com/iuriineves/modding-badges/blob/main/Requires%20GeckoLib.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/geckolib)
-[<img src="https://github.com/iuriineves/modding-badges/blob/main/Requires%20SBL.png" alt="Requires Fabric API" width="236"/>](https://modrinth.com/mod/smartbrainlib)
+[<img src="https://github.com/sn0wfrog/modding-badges/blob/main/Requires%20Fabric%20API.png?raw=true" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/fabric-api)
+[<img src="https://github.com/sn0wfrog/modding-badges/blob/main/Requires%20GeckoLib.png" alt="Requires Fabric API" width="200"/>](https://modrinth.com/mod/geckolib)
+[<img src="https://github.com/sn0wfrog/modding-badges/blob/main/Requires%20SBL.png" alt="Requires Fabric API" width="236"/>](https://modrinth.com/mod/smartbrainlib)
 
 
 ## Video Showcase [NOT OUT YET]
@@ -58,7 +58,7 @@
 
 **Can I include this mod in a modpack?**
 
-**Yes**: You can, no need for approval. However, I would love to know what modpacks are using this mod, so don't hesitate to message me on discord! (iuriineves).
+**Yes**: You can, no need for approval. However, I would love to know what modpacks are using this mod, so don't hesitate to message me on discord! (sn0wfrog).
 
 **I found a bug! What do I do?**
 
@@ -68,4 +68,4 @@
 
 **No**: I only mod for the Fabric loader, so other modloader versions are not going to happen. Sorry! (A quilt version might happen, though)
 
-###### Copyright (c) 2024 iuriineves
+###### Copyright (c) 2024 sn0wfrog

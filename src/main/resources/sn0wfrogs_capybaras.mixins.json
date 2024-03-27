@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "iuriineves.sn0wfrogs_capybaras.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"OnConsumeMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

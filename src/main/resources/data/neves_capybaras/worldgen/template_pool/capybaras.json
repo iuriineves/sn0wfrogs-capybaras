@@ -1,5 +1,5 @@
 {
-  "name": "neves_capybaras:capybaras",
+  "name": "sn0wfrogs_capybaras:capybaras",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -7,7 +7,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "neves_capybaras:capybaras/albino_capybara",
+        "location": "sn0wfrogs_capybaras:capybaras/albino_capybara",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +16,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "neves_capybaras:capybaras/red_capybara",
+        "location": "sn0wfrogs_capybaras:capybaras/red_capybara",
         "processors": "minecraft:empty"
       }
     },
@@ -25,7 +25,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "neves_capybaras:capybaras/brown_capybara",
+        "location": "sn0wfrogs_capybaras:capybaras/brown_capybara",
         "processors": "minecraft:empty"
       }
     },
@@ -34,7 +34,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "neves_capybaras:capybaras/dark_capybara",
+        "location": "sn0wfrogs_capybaras:capybaras/dark_capybara",
         "processors": "minecraft:empty"
       }
     }

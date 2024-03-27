@@ -1,0 +1,34 @@
+{
+  "entity.capybara.ambient": {
+    "subtitle": "subtitles.sn0wfrogs_capybaras.ambient",
+    "sounds": [
+      "sn0wfrogs_capybaras:capybara/capybara_squeak_1",
+      "sn0wfrogs_capybaras:capybara/capybara_squeak_2",
+      "sn0wfrogs_capybaras:capybara/capybara_whistle",
+      "sn0wfrogs_capybaras:capybara/capybara_click"
+    ]
+  },
+
+  "entity.capybara.attacked": {
+    "subtitle": "subtitles.sn0wfrogs_capybaras.attacked",
+    "sounds": [
+      "sn0wfrogs_capybaras:capybara/capybara_bark_1",
+      "sn0wfrogs_capybaras:capybara/capybara_bark_2",
+      "sn0wfrogs_capybaras:capybara/capybara_bark_3"
+    ]
+  },
+
+  "block.thermal_spring.geyser": {
+    "subtitle": "subtitles.sn0wfrogs_capybaras.geyser",
+    "sounds": [
+      "sn0wfrogs_capybaras:thermal_spring/geyser"
+    ]
+  },
+
+  "block.thermal_spring.thermal_spring": {
+    "subtitle": "subtitles.sn0wfrogs_capybaras.thermal_spring",
+    "sounds": [
+      "sn0wfrogs_capybaras:thermal_spring/thermal_spring"
+    ]
+  }
+}

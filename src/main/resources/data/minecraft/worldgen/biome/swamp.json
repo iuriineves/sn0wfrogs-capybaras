@@ -141,7 +141,7 @@
         "weight": 10
       },
       {
-        "type": "neves_capybaras:capybara",
+        "type": "sn0wfrogs_capybaras:capybara",
         "maxCount": 4,
         "minCount": 3,
         "weight": 20
