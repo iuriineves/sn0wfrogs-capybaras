@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "sn0wfrogs_capybaras:block/mandarin_bush_sapling"
+  }
+}

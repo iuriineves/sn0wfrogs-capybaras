@@ -1,13 +1,13 @@
 {
   "structures": [
     {
-      "structure": "neves_capybaras:geyser",
+      "structure": "sn0wfrogs_capybaras:geyser",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "salt": 1343618227,
+    "salt": 641758149,
     "frequency": 0.5,
     "spacing": 10,
     "separation": 5

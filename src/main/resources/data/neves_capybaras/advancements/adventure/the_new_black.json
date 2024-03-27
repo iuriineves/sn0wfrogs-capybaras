@@ -1,14 +1,14 @@
 {
   "display": {
     "icon": {
-      "item": "neves_capybaras:mandarin"
+      "item": "sn0wfrogs_capybaras:mandarin"
     },
     "title": {
-      "translate": "advancement.neves_capybaras.the_new_black.title",
+      "translate": "advancement.sn0wfrogs_capybaras.the_new_black.title",
       "fallback": "The new black"
     },
     "description": {
-      "translate": "advancement.neves_capybaras.the_new_black.description",
+      "translate": "advancement.sn0wfrogs_capybaras.the_new_black.description",
       "fallback": "Place a mandarin on a capybara's head"
     },
     "frame": "task",
@@ -25,13 +25,13 @@
           "equipment": {
             "mainhand": {
               "items": [
-                "neves_capybaras:mandarin"
+                "sn0wfrogs_capybaras:mandarin"
               ]
             }
           }
         },
         "entity": {
-          "type": "neves_capybaras:capybara"
+          "type": "sn0wfrogs_capybaras:capybara"
         }
       }
     }

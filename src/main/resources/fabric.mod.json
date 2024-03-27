@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "neves_capybaras",
+	"id": "sn0wfrogs_capybaras",
 	"version": "${version}",
 	"name": "Neves' Capybaras",
 	"description": "Add coconut doggies to your Minecraft world!",
@@ -12,23 +12,23 @@
 		"sources": "https://github.com/iuriineves/Neves-Capybaras/issues"
 	},
 	"license": "ARR",
-	"icon": "assets/neves_capybaras/icon.png",
+	"icon": "assets/sn0wfrogs_capybaras/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"iuriineves.neves_capybaras.NevesCapybaras"
+			"iuriineves.sn0wfrogs_capybaras.Sn0wfrogsCapybaras"
 		],
 		"client": [
-			"iuriineves.neves_capybaras.NevesCapybarasClient"
+			"iuriineves.sn0wfrogs_capybaras.Sn0wfrogsCapybarasClient"
 		],
 		"fabric-datagen": [
-			"iuriineves.neves_capybaras.NevesCapybarasDataGenerator"
+			"iuriineves.sn0wfrogs_capybaras.Sn0wfrogsCapybarasDataGenerator"
 		]
 	},
 	"mixins": [
-		"neves_capybaras.mixins.json",
+		"sn0wfrogs_capybaras.mixins.json",
 		{
-			"config": "neves_capybaras.client.mixins.json",
+			"config": "sn0wfrogs_capybaras.client.mixins.json",
 			"environment": "client"
 		}
 	],

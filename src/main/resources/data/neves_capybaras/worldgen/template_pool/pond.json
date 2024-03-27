@@ -1,5 +1,5 @@
 {
-  "name": "neves_capybaras:pond",
+  "name": "sn0wfrogs_capybaras:pond",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -7,7 +7,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "neves_capybaras:pond/pond1",
+        "location": "sn0wfrogs_capybaras:pond/pond1",
         "processors": "minecraft:empty"
       }
     },
@@ -16,7 +16,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "neves_capybaras:pond/pond2",
+        "location": "sn0wfrogs_capybaras:pond/pond2",
         "processors": "minecraft:empty"
       }
     },
@@ -25,7 +25,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "neves_capybaras:pond/pond3",
+        "location": "sn0wfrogs_capybaras:pond/pond3",
         "processors": "minecraft:empty"
       }
     }

@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "neves_capybaras:flowering_mandarin_leaves",
+              "name": "sn0wfrogs_capybaras:flowering_mandarin_leaves",
               "conditions": [
                 {
                   "condition": "minecraft:any_of",
@@ -42,7 +42,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "neves_capybaras:mandarin_bush_sapling",
+              "name": "sn0wfrogs_capybaras:mandarin_bush_sapling",
               "conditions": [
                 {
                   "condition": "minecraft:survives_explosion"
@@ -137,7 +137,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "neves_capybaras:mandarin",
+          "name": "sn0wfrogs_capybaras:mandarin",
           "conditions": [
             {
               "condition": "minecraft:survives_explosion"

@@ -4,11 +4,11 @@
       "item": "minecraft:sugar"
     },
     "title": {
-      "translate": "advancement.neves_capybaras.oh_sweetie.title",
+      "translate": "advancement.sn0wfrogs_capybaras.oh_sweetie.title",
       "fallback": "Oh sweetie..."
     },
     "description": {
-      "translate": "advancement.neves_capybaras.oh_sweetie.description",
+      "translate": "advancement.sn0wfrogs_capybaras.oh_sweetie.description",
       "fallback": "Consume a mandarin and taste the sweetness"
     },
     "frame": "task",
@@ -23,7 +23,7 @@
       "conditions": {
         "item": {
           "items": [
-            "neves_capybaras:mandarin"
+            "sn0wfrogs_capybaras:mandarin"
           ]
         }
       }
