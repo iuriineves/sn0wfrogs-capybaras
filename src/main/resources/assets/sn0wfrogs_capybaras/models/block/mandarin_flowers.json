@@ -1,0 +1,16 @@
+{
+  "ambientocclusion": true,
+  "textures": {
+    "particle": "sn0wfrogs_capybaras:block/mandarin_flowers",
+    "mandarin_flowers": "sn0wfrogs_capybaras:block/mandarin_flowers"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0.1 ],
+      "to": [ 16, 16, 0.1 ],
+      "faces": {
+        "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#mandarin_flowers" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#mandarin_flowers" }
+      }
+    }
+  ]
+}

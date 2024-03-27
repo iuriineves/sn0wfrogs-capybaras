@@ -63,7 +63,7 @@ public class ThermalSpringBlockEntity extends BlockEntity {
                 // thermal spring logic
                 if (world.getBlockState(blockPos1).getFluidState().getFluid() == Fluids.WATER) {
                     double distance = calculateDistance(finalWaterBlock, blockPos1);
-                    if (distance <= 10 && world.getTime() % 20 == 0) {
+                    if (distance <= 10 && world.getTime() % 10 == 0) {
                         world.addParticle(Sn0wfrogsCapybaras.WATER_VAPOR, blockPos1.getX() + ((double) world.random.nextBetween(0, 10) / 10), blockPos1.getY() + 0.5, blockPos1.getZ() + ((double) world.random.nextBetween(0, 10) / 10), 0.0 + (((double) world.random.nextDouble() / 20) - 0.05), 0.1 - ((0.2 / 20) * distance), 0.0 + ((world.random.nextDouble() / 20) - 0.05));
                     }
                 }
