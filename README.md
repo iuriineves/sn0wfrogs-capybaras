@@ -81,7 +81,7 @@
 **No**: I only mod for the Fabric loader, so other mod loader versions will not happen. Sorry! (A quilt version might happen, though)
 
 ## SPECIAL THANKS TO
-@PadjokeJ, for volunteering to do the french translation of the mod.
+[@PadjokeJ](https://www.github.com/PadjokeJ), for volunteering to do the french translation of the mod.
 Thanks!
 
 ###### Copyright (c) 2024 sn0wfrog
