@@ -28,7 +28,7 @@
 ## Features
 ### Capybaras:
 - Capybaras are new mobs found in swamps, mangrove swamps, and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
-- Capybaras come in four different varieties. The most common are the red capybara, the brown capybara, and the choco capybara (dark brown). Besides these three variants, you can also find albino capybaras (personally my favorites) with a spawn chance of 1% (so one every 100 capybaras) and capybara towers, with a 1% spawn chance.
+- Capybaras come in four different varieties. The most common are the red capybara, the brown capybara, and the choco capybara (dark brown). Besides these three variants, you can also find albino capybaras (personally my favorites) with a spawn chance of 1% (so one every 100 capybaras) and capybara towers, also with a 1% spawn chance.
 - Capybaras will follow you if you hold a melon slice. It also allows you to breed them.
 - You can place mandarins on capybaras heads. This can be purely visual, but if you tempt them with a melon slice, and they collide with an entity, this entity will ride the capybara (pretty much like a boat). To dismount it, right-click the capybara. If you want to remove the mandarin, right-click the capybara while sneaking when no entity is riding them. Other capybaras or players can't ride capybaras.
 - Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water to survive.
