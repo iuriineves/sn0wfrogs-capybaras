@@ -7,6 +7,7 @@
   "item.sn0wfrogs_capybaras.mandarin": "Mandarine",
   "item.sn0wfrogs_capybaras.mandarin_bush_sapling": "Pousse de Buisson de Mandarines",
   "block.sn0wfrogs_capybaras.mandarin_bush_sapling": "Pousse de Buisson de Mandarines",
+  "block.sn0wfrogs_capybaras.mandarin_flowers": "Fleures de Mandarines"
 
   "effect.sn0wfrogs_capybaras.sweetened": "Sucré",
 
@@ -14,6 +15,9 @@
   "advancement.sn0wfrogs_capybaras.oh_sweetie.description": "Mange une mandarine et découvre leur douceur",
   "advancement.sn0wfrogs_capybaras.the_new_black.title": "The new black",
   "advancement.sn0wfrogs_capybaras.the_new_black.description": "Met une mandarine sur la tête d'un capybara",
+  
+  "subtitles.sn0wfrogs_capybaras.geyser": "Geyser jaillit",
+  "subtitles.sn0wfrogs_capybaras.thermal_spring": "Eau bout",
 
   "subtitles.sn0wfrogs_capybaras.attacked": "Capybara aboie",
   "subtitles.sn0wfrogs_capybaras.ambient":  "Capybara couine",

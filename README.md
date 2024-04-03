@@ -17,20 +17,18 @@
 ## Video Showcase [NOT OUT YET]
 
 ## Gallery
-![Happy capybara family in the mud.](https://cdn.modrinth.com/data/cached_images/10fa8cfc57fb411de59ccc62d755b34ebeee94dc.png)
+![Capybaras playing on the thermal spring](https://github.com/sn0wfrog/sn0wfrogs-capybaras/assets/60155360/bdee8a12-e394-4535-a0aa-d4d11778a08c)
 
-![Capybaras playing in the thermal springs.](https://cdn.modrinth.com/data/cached_images/56b01a09cafd9312fb315929fb574f0fa1faa5e3.png)
+![Albino capybara chilling with a geyser](https://github.com/sn0wfrog/sn0wfrogs-capybaras/assets/60155360/04e3da9c-250d-4707-8d68-f9da97dcb4c5)
 
-![Mangrove swamp with thermal springs.](https://cdn.modrinth.com/data/cached_images/499b4725ff2c5cb93fb2bb46ff79d4eb78e1de5d.png)
+![Mandarin bushes on a sunny day](https://github.com/sn0wfrog/sn0wfrogs-capybaras/assets/60155360/24a9328b-01e3-46df-96ad-6a39195129f8)
 
-![Mandarin bushes on a sunny day.](https://cdn.modrinth.com/data/cached_images/b726f5e55d4aeaed5c6161559d404c985df99127.png)
-
-![Geysers spewing water.](https://cdn.modrinth.com/data/cached_images/5b748e18bd0967d7008a63f8d8bf413f44eac649.png)
+![Thermal springs on a mangrove swamp](https://github.com/sn0wfrog/sn0wfrogs-capybaras/assets/60155360/d58cb9f9-b081-4447-b4d2-26fba61c1348)
 
 ## Features
 ### Capybaras:
 - Capybaras are new mobs found in swamps, mangrove swamps, and river biomes. They will spawn anywhere on those, usually in groups of 3-4 capybaras, but will spawn way more frequently at Capybara's Paradise, also found in mangrove swamps.
-- Capybaras come in four different varieties. The most common are the red capybara, the brown capybara, and the choco capybara (dark brown). Besides these three variants, you can also find albino capybaras (personally my favorites) with a spawn chance of 1% (so one every 100 capybaras) and capybara towers, with a 1% spawn chance.
+- Capybaras come in four different varieties. The most common are the red capybara, the brown capybara, and the choco capybara (dark brown). Besides these three variants, you can also find albino capybaras (personally my favorites) with a spawn chance of 1% (so one every 100 capybaras) and capybara towers, also with a 1% spawn chance.
 - Capybaras will follow you if you hold a melon slice. It also allows you to breed them.
 - You can place mandarins on capybaras heads. This can be purely visual, but if you tempt them with a melon slice, and they collide with an entity, this entity will ride the capybara (pretty much like a boat). To dismount it, right-click the capybara. If you want to remove the mandarin, right-click the capybara while sneaking when no entity is riding them. Other capybaras or players can't ride capybaras.
 - Capybaras are semiaquatic animals, so they spawn more often near water bodies. However, they do not need water to survive.
@@ -62,6 +60,11 @@
 ### Sweetened:
 - A new effect. While having this effect, all food gives you 50% more hunger points (1.5x). For golden apples and enchanted golden apples, as well as the 50% more hunger points, you'll also get two more absorption hearts (4 health points).
 - This effect is only obtainable through eating mandarins and has only a single level.
+### Advancements
+- Oh sweetie...:
+  - You unlock this advancement by eating a mandarin and getting the "Sweetened" effect.
+- The new black:
+  - You unlock this advancement by stylishly placing a mandarin on a capybara's head.
 
 ## FAQ
 
@@ -76,5 +79,9 @@
 **Can you port this mod to X mod loader?**
 
 **No**: I only mod for the Fabric loader, so other mod loader versions will not happen. Sorry! (A quilt version might happen, though)
+
+## SPECIAL THANKS TO
+[@PadjokeJ](https://www.github.com/PadjokeJ), for volunteering to do the french translation of the mod.
+Thanks!
 
 ###### Copyright (c) 2024 sn0wfrog
