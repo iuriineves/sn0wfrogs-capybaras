@@ -11,6 +11,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 
+import java.util.Objects;
+
 public class SweetenedStatusEffect extends StatusEffect {
 
     public SweetenedStatusEffect(StatusEffectCategory category, int color) {
@@ -41,7 +43,7 @@ public class SweetenedStatusEffect extends StatusEffect {
                 }
 
                 // 1.5x food logic
-                player.getHungerManager().add((itemStack.getFoodComponent().getHunger() / 4), 0.3f);
+                player.getHungerManager().add((Objects.requireNonNull(itemStack.getItem().getFoodComponent()).getHunger() / 4), 0.3f);
             }
             return ActionResult.SUCCESS;
         });

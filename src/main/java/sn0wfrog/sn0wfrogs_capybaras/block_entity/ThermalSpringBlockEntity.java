@@ -112,7 +112,7 @@ public class ThermalSpringBlockEntity extends BlockEntity {
     }
 
 
-    public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState blockState, ThermalSpringBlockEntity blockEntity) {
-        emitParticles(world, blockPos, blockEntity);
+    public static <T extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState blockState, T blockEntity) {
+        emitParticles(world, blockPos, (ThermalSpringBlockEntity) blockEntity);
     }
 }

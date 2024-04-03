@@ -331,11 +331,6 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         }
     }
 
-    @Override
-    public Vec3d getPassengerRidingPos(Entity passenger) {
-        return this.isLoafing() ? super.getPassengerRidingPos(passenger).add(0, -0.2, 0) : super.getPassengerRidingPos(passenger).add(0, 0.1, 0);
-    }
-
     @Nullable
     @Override
     public LivingEntity getControllingPassenger() {
