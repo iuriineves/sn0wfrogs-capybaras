@@ -13,7 +13,7 @@ public class ModSaplingGenerators {
             new SaplingGenerator("mandarin_bush", 0f,
                     Optional.empty(),
                     Optional.empty(),
-                    Optional.of(RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Sn0wfrogsCapybaras.MOD_ID, "mandarin_bush"))),
+                    Optional.of(RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(Sn0wfrogsCapybaras.MOD_ID, "mandarin_bush"))),
                     Optional.empty(),
                     Optional.empty(),
                     Optional.empty());

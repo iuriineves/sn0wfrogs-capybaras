@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -27,7 +27,7 @@ repositories {
 }
 
 loom {
-    splitEnvironmentSourceSets()
+	splitEnvironmentSourceSets()
 
 	mods {
 		"sn0wfrogs_capybaras" {
@@ -70,6 +70,7 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
+	// Gradle has updated to use "JavaVersion.VERSION_21"
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
 }

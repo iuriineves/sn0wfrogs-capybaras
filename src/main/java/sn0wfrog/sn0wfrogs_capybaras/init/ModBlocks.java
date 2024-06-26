@@ -1,9 +1,9 @@
 package sn0wfrog.sn0wfrogs_capybaras.init;
 
+import net.minecraft.item.Item;
 import sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras;
 import sn0wfrog.sn0wfrogs_capybaras.block.ThermalSpringBlock;
 import sn0wfrog.sn0wfrogs_capybaras.world.tree.ModSaplingGenerators;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -28,9 +28,9 @@ public interface ModBlocks {
     GlowLichenBlock MANDARIN_FLOWERS = createBlock("mandarin_flowers", new GlowLichenBlock(FabricBlockSettings.create().luminance(0).sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque()), true);
 
     private static <T extends Block> T createBlock(String name, T block, boolean createItem) {
-        BLOCKS.put(block, new Identifier(Sn0wfrogsCapybaras.MOD_ID, name));
+        BLOCKS.put(block, Identifier.of(Sn0wfrogsCapybaras.MOD_ID, name));
         if (createItem) {
-            ModItems.ITEMS.put(new BlockItem(block, new FabricItemSettings()), new Identifier(Sn0wfrogsCapybaras.MOD_ID, name));
+            ModItems.ITEMS.put(new BlockItem(block, new Item.Settings()), Identifier.of(Sn0wfrogsCapybaras.MOD_ID, name));
         }
         return block;
     }

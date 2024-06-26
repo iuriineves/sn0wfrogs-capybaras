@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -28,8 +28,8 @@ public class Sn0wfrogsCapybaras implements ModInitializer {
 			.build();
 
 
-	public static final DefaultParticleType WATER_VAPOR = FabricParticleTypes.simple();
-	public static final DefaultParticleType GEYSER = FabricParticleTypes.simple();
+	public static final SimpleParticleType WATER_VAPOR = FabricParticleTypes.simple();
+	public static final SimpleParticleType GEYSER = FabricParticleTypes.simple();
 
 	@Override
 	public void onInitialize() {
@@ -41,10 +41,10 @@ public class Sn0wfrogsCapybaras implements ModInitializer {
 		ModBlockEntities.initialize();
 		ModStatusEffects.initialize();
 
-		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "water_vapor"), WATER_VAPOR);
-		Registry.register(Registries.PARTICLE_TYPE, new Identifier(MOD_ID, "geyser"), GEYSER);
+		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "water_vapor"), WATER_VAPOR);
+		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "geyser"), GEYSER);
 
-		Registry.register(Registries.ITEM_GROUP, new Identifier("sn0wfrogs_capybaras", "capy_group"), ITEM_GROUP);
+		Registry.register(Registries.ITEM_GROUP, Identifier.of("sn0wfrogs_capybaras", "capy_group"), ITEM_GROUP);
 
 	}
 }
