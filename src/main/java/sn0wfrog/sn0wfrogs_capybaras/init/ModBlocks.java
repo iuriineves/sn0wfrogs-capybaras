@@ -4,7 +4,6 @@ import net.minecraft.item.Item;
 import sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras;
 import sn0wfrog.sn0wfrogs_capybaras.block.ThermalSpringBlock;
 import sn0wfrog.sn0wfrogs_capybaras.world.tree.ModSaplingGenerators;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
@@ -18,14 +17,14 @@ import java.util.Map;
 public interface ModBlocks {
     Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 
-    ThermalSpringBlock THERMAL_SPRING_BLOCK = createBlock("thermal_spring", new ThermalSpringBlock(FabricBlockSettings.create().strength(4.0f).requiresTool().sounds(BlockSoundGroup.PACKED_MUD)), true);
-    LeavesBlock MANDARIN_LEAVES_BLOCK = createBlock("mandarin_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).nonOpaque()), true);
-    LeavesBlock FLOWERING_MANDARIN_LEAVES_BLOCK = createBlock("flowering_mandarin_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).nonOpaque()), true);
+    ThermalSpringBlock THERMAL_SPRING_BLOCK = createBlock("thermal_spring", new ThermalSpringBlock(AbstractBlock.Settings.create().strength(4.0f).requiresTool().sounds(BlockSoundGroup.PACKED_MUD)), true);
+    LeavesBlock MANDARIN_LEAVES_BLOCK = createBlock("mandarin_leaves", new LeavesBlock(AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES).nonOpaque()), true);
+    LeavesBlock FLOWERING_MANDARIN_LEAVES_BLOCK = createBlock("flowering_mandarin_leaves", new LeavesBlock(AbstractBlock.Settings.copy(Blocks.FLOWERING_AZALEA_LEAVES).nonOpaque()), true);
 
-    SaplingBlock MANDARIN_BUSH_SAPLING = createBlock("mandarin_bush_sapling", new SaplingBlock(ModSaplingGenerators.MANDARIN_BUSH, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()), true);
-    FlowerPotBlock POTTED_MANDARIN_BUSH_SAPLING = createBlock("potted_mandarin_bush_sapling", new FlowerPotBlock(MANDARIN_BUSH_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_OAK_SAPLING).nonOpaque()), false);
+    SaplingBlock MANDARIN_BUSH_SAPLING = createBlock("mandarin_bush_sapling", new SaplingBlock(ModSaplingGenerators.MANDARIN_BUSH, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).nonOpaque()), true);
+    FlowerPotBlock POTTED_MANDARIN_BUSH_SAPLING = createBlock("potted_mandarin_bush_sapling", new FlowerPotBlock(MANDARIN_BUSH_SAPLING, AbstractBlock.Settings.copy(Blocks.POTTED_OAK_SAPLING).nonOpaque()), false);
 
-    GlowLichenBlock MANDARIN_FLOWERS = createBlock("mandarin_flowers", new GlowLichenBlock(FabricBlockSettings.create().luminance(0).sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque()), true);
+    GlowLichenBlock MANDARIN_FLOWERS = createBlock("mandarin_flowers", new GlowLichenBlock(AbstractBlock.Settings.create().luminance(GlowLichenBlock.getLuminanceSupplier(0)).sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque()), true);
 
     private static <T extends Block> T createBlock(String name, T block, boolean createItem) {
         BLOCKS.put(block, Identifier.of(Sn0wfrogsCapybaras.MOD_ID, name));
