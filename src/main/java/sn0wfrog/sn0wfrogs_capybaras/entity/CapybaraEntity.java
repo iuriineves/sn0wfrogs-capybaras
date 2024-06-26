@@ -346,10 +346,10 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         return null;
     }
 
-    /*@Override
-    public EntityDimensions getDimensions(EntityPose pose) {
+    @Override
+    public EntityDimensions getBaseDimensions(EntityPose pose) {
         return EntityDimensions.changing(getWidth(), getHeight());
-    }*/
+    }
 
     private <E extends CapybaraEntity>PlayState predicate(final AnimationState<E> event) {
         event.getController().setAnimationSpeed(1);
