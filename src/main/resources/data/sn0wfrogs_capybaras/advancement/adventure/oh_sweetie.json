@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:sugar"
+      "id": "minecraft:sugar"
     },
     "title": {
       "translate": "advancement.sn0wfrogs_capybaras.oh_sweetie.title",
@@ -22,9 +22,7 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "items": [
-            "sn0wfrogs_capybaras:mandarin"
-          ]
+          "items": "sn0wfrogs_capybaras:mandarin"
         }
       }
     }

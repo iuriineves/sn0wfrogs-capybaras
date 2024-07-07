@@ -2,7 +2,6 @@ package sn0wfrog.sn0wfrogs_capybaras.entity;
 
 import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.predicate.entity.EntityPredicates;
 import sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras;
 import sn0wfrog.sn0wfrogs_capybaras.entity.ai.CapybaraWalk;
@@ -64,21 +63,22 @@ import net.tslat.smartbrainlib.api.core.sensor.vanilla.ItemTemptingSensor;
 import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.AnimatableManager;
+import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import static net.minecraft.entity.EntityPose.SITTING;
 import static net.minecraft.entity.EntityPose.STANDING;
+
+import static sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras.LOGGER; // Kept for Debug statements that have been commented.
 
 public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrainOwner<CapybaraEntity> {
 
@@ -110,8 +110,9 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 12.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32);
     }
 
+
     @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData) {
 
         if (world.getRandom().nextInt(100) == 0) {
             this.setCapybaraType(Type.ALBINO);
@@ -133,18 +134,19 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         } else {
             this.setCapybaraType(getRandomNaturalType(world.getRandom()));
         }
-        return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+        return super.initialize(world, difficulty, spawnReason, entityData);
     }
 
-    @Override
-    protected void initDataTracker() {
-        super.initDataTracker();
 
-        this.dataTracker.startTracking(MANDARIN, false);
-        this.dataTracker.startTracking(TYPE, "");
-        this.dataTracker.startTracking(LAST_POSE_TICK, 0L);
-        this.dataTracker.startTracking(STATIONARY, true);
-        this.dataTracker.startTracking(TEMPTED, false);
+    @Override
+    protected void initDataTracker(DataTracker.Builder builder) {
+        super.initDataTracker(builder);
+
+        builder.add(MANDARIN, false);
+        builder.add(TYPE, "");
+        builder.add(LAST_POSE_TICK, 0L);
+        builder.add(STATIONARY, true);
+        builder.add(TEMPTED, false);
     }
 
     @Override
@@ -293,6 +295,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
                 if (!player.isCreative())
                     player.getWorld().spawnEntity(new ItemEntity(player.getWorld(), this.getX(), this.getY() + 1, this.getZ(), new ItemStack(ModItems.MANDARIN)));
                 setMandarin(false);
+                //LOGGER.info("Removing Mandarin");
             }
             return ActionResult.CONSUME;
         } else if (!hasMandarin() && !this.isBaby()){
@@ -302,6 +305,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
                 if (!player.getWorld().isClient()) {
                     if (!player.isCreative()) player.getMainHandStack().decrement(1);
                     setMandarin(true);
+                    //LOGGER.info("Adding Mandarin");
                 }
                 return ActionResult.CONSUME;
 
@@ -343,7 +347,7 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
     }
 
     @Override
-    public EntityDimensions getDimensions(EntityPose pose) {
+    public EntityDimensions getBaseDimensions(EntityPose pose) {
         return EntityDimensions.changing(getWidth(), getHeight());
     }
 
@@ -465,10 +469,10 @@ public class CapybaraEntity extends AnimalEntity implements GeoEntity, SmartBrai
         }
 
         public enum Type {
-            RED(new Identifier(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/red_capybara.png")),
-            ALBINO(new Identifier(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/albino_capybara.png")),
-            BROWN(new Identifier(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/brown_capybara.png")),
-            DARK(new Identifier(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/dark_capybara.png"));
+            RED(Identifier.of(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/red_capybara.png")),
+            ALBINO(Identifier.of(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/albino_capybara.png")),
+            BROWN(Identifier.of(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/brown_capybara.png")),
+            DARK(Identifier.of(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/dark_capybara.png"));
 
             public final Identifier capybaraTexture;
             Type(Identifier capybaraTexture) {

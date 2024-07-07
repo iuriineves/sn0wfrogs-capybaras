@@ -1,5 +1,10 @@
 package sn0wfrog.sn0wfrogs_capybaras.effect;
 
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.Entity;
+import net.minecraft.registry.Registries;
+import org.jetbrains.annotations.Nullable;
 import sn0wfrog.sn0wfrogs_capybaras.event.ConsumeItemCallback;
 import sn0wfrog.sn0wfrogs_capybaras.init.ModStatusEffects;
 import net.minecraft.entity.LivingEntity;
@@ -23,13 +28,14 @@ public class SweetenedStatusEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        if (!(entity instanceof PlayerEntity player)) return;
-        if ((entity.getWorld().isClient())) return;
+    public void applyInstantEffect(@Nullable Entity source, @Nullable Entity attacker, LivingEntity entity, int amplifier, double proximity) {
+        if (!(entity instanceof PlayerEntity player)) { return;}
+        if ((entity.getWorld().isClient())) {return;}
 
 
         ConsumeItemCallback.EVENT.register((itemStack, user) -> {
-            if (user == player && player.hasStatusEffect(ModStatusEffects.SWEETENED)) {
+            if (user == player && player.hasStatusEffect(Registries.STATUS_EFFECT.getEntry(ModStatusEffects.SWEETENED)))
+            {
 
                 // check for golden and enchanted golden apple for buffed status effects
                 if (itemStack.getItem() == Items.GOLDEN_APPLE) {
@@ -40,8 +46,12 @@ public class SweetenedStatusEffect extends StatusEffect {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 4));
                 }
 
-                // 1.5x food logic
-                player.getHungerManager().add((itemStack.getFoodComponent().getHunger() / 4), 0.3f);
+                // Temp variable to check in case there is no FoodComponent in the ItemStack.
+                FoodComponent itemStackAs_FoodComponent = itemStack.getComponents().get(DataComponentTypes.FOOD);
+                // Null check.
+                if( itemStackAs_FoodComponent!= null)
+                    // 1.5x food logic
+                    player.getHungerManager().add((itemStackAs_FoodComponent.nutrition() / 4), 0.3f);
             }
             return ActionResult.SUCCESS;
         });

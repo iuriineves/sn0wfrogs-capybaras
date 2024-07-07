@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "sn0wfrogs_capybaras:mandarin"
+      "id": "sn0wfrogs_capybaras:mandarin"
     },
     "title": {
       "translate": "advancement.sn0wfrogs_capybaras.the_new_black.title",
