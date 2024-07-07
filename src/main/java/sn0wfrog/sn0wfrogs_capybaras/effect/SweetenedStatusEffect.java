@@ -4,7 +4,6 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.entry.RegistryEntry;
 import org.jetbrains.annotations.Nullable;
 import sn0wfrog.sn0wfrogs_capybaras.event.ConsumeItemCallback;
 import sn0wfrog.sn0wfrogs_capybaras.init.ModStatusEffects;

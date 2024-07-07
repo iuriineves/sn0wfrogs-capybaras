@@ -1,7 +1,5 @@
 package sn0wfrog.sn0wfrogs_capybaras.init;
 
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.entry.RegistryEntry;
 import sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;

@@ -1,6 +1,5 @@
 package sn0wfrog.sn0wfrogs_capybaras.init;
 
-import net.minecraft.registry.entry.RegistryEntry;
 import sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras;
 import sn0wfrog.sn0wfrogs_capybaras.effect.SweetenedStatusEffect;
 import net.minecraft.entity.effect.StatusEffect;
