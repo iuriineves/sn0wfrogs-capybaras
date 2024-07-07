@@ -34,12 +34,12 @@ public class Sn0wfrogsCapybaras implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
+		ModStatusEffects.initialize();
 		ModEntities.initialize();
 		ModBlocks.initialize();
 		ModItems.initialize();
 		ModSoundEvents.initialize();
 		ModBlockEntities.initialize();
-		ModStatusEffects.initialize();
 
 		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "water_vapor"), WATER_VAPOR);
 		Registry.register(Registries.PARTICLE_TYPE, Identifier.of(MOD_ID, "geyser"), GEYSER);

@@ -3,6 +3,8 @@ package sn0wfrog.sn0wfrogs_capybaras.effect;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.Entity;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
 import org.jetbrains.annotations.Nullable;
 import sn0wfrog.sn0wfrogs_capybaras.event.ConsumeItemCallback;
 import sn0wfrog.sn0wfrogs_capybaras.init.ModStatusEffects;
@@ -33,7 +35,8 @@ public class SweetenedStatusEffect extends StatusEffect {
 
 
         ConsumeItemCallback.EVENT.register((itemStack, user) -> {
-            if (user == player && player.hasStatusEffect(ModStatusEffects.SWEETENED)) {
+            if (user == player && player.hasStatusEffect(Registries.STATUS_EFFECT.getEntry(ModStatusEffects.SWEETENED)))
+            {
 
                 // check for golden and enchanted golden apple for buffed status effects
                 if (itemStack.getItem() == Items.GOLDEN_APPLE) {
