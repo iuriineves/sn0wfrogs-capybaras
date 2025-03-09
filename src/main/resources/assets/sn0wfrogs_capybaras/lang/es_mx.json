@@ -1,0 +1,26 @@
+{
+  "entity.sn0wfrogs_capybaras.capybara": "Capibara",
+  "item.sn0wfrogs_capybaras.capybara_spawn_egg": "Generar Capibara",
+  "block.sn0wfrogs_capybaras.thermal_spring": "Manantial Termal",
+  "block.sn0wfrogs_capybaras.mandarin_leaves": "Hojas de Mandarina",
+  "block.sn0wfrogs_capybaras.flowering_mandarin_leaves": "Hojas de Mandarina en Flor",
+  "block.sn0wfrogs_capybaras.mandarin_flowers": "Flores de Mandarina",
+  "item.sn0wfrogs_capybaras.mandarin": "Mandarina",
+  "item.sn0wfrogs_capybaras.mandarin_bush_sapling": "Retoño de Arbusto de Mandarina",
+  "block.sn0wfrogs_capybaras.mandarin_bush_sapling": "Retoño de Arbusto de Mandarina",
+
+  "effect.sn0wfrogs_capybaras.sweetened": "Endulzado",
+
+  "advancement.sn0wfrogs_capybaras.oh_sweetie.title": "Oh que dulce...",
+  "advancement.sn0wfrogs_capybaras.oh_sweetie.description": "Consume una mandarina y prueba la dulzura",
+  "advancement.sn0wfrogs_capybaras.the_new_black.title": "Chigüire fashion",
+  "advancement.sn0wfrogs_capybaras.the_new_black.description": "Coloca una mandarina en la cabeza de un Capibara",
+
+  "subtitles.sn0wfrogs_capybaras.geyser": "Géiser ruge",
+  "subtitles.sn0wfrogs_capybaras.thermal_spring": "El agua hierve",
+
+  "subtitles.sn0wfrogs_capybaras.attacked": "Capibara ladra",
+  "subtitles.sn0wfrogs_capybaras.ambient": "Capibara chilla",
+
+  "itemGroup.sn0wfrogs_capybaras.capy_group": "Sn0wfrog's Capybaras"
+}
