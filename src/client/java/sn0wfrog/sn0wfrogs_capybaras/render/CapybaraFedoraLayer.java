@@ -11,22 +11,29 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoRenderer;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
+import software.bernie.geckolib.util.Color;
 
 public class CapybaraFedoraLayer extends GeoRenderLayer<CapybaraEntity> {
-    private static final Identifier TEXTURE = new Identifier(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/fedora.png");
+    private static final Identifier TEXTURE = Identifier.of(Sn0wfrogsCapybaras.MOD_ID, "textures/entity/fedora.png");
 
     public CapybaraFedoraLayer(GeoRenderer<CapybaraEntity> entityRendererIn) {
         super(entityRendererIn);
     }
 
     @Override
-    public void render(MatrixStack poseStack, CapybaraEntity animatable, BakedGeoModel bakedModel, RenderLayer renderType, VertexConsumerProvider bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
+    public void render(MatrixStack poseStack,
+                       CapybaraEntity animatable,
+                       BakedGeoModel bakedModel,
+                       RenderLayer renderType,
+                       VertexConsumerProvider bufferSource, VertexConsumer buffer,
+                       float partialTick, int packedLight, int packedOverlay)
+    {
         if (animatable.hasFedora()) {
             RenderLayer armorRenderType = RenderLayer.getArmorCutoutNoCull(TEXTURE);
 
             getRenderer().reRender(getDefaultBakedModel(animatable), poseStack, bufferSource, animatable, armorRenderType,
                     bufferSource.getBuffer(armorRenderType), partialTick, packedLight, OverlayTexture.DEFAULT_UV,
-                    1, 1, 1, 1);
+                    Color.WHITE.argbInt());
         }
     }
 }

@@ -20,8 +20,8 @@ public interface ModSoundEvents {
     SoundEvent BLOCK_THERMAL_SPRING = createSoundEvent("block.thermal_spring.thermal_spring");
 
     private static SoundEvent createSoundEvent(String path) {
-        SoundEvent soundEvent = SoundEvent.of(new Identifier(Sn0wfrogsCapybaras.MOD_ID, path));
-        SOUND_EVENTS.put(soundEvent, new Identifier(Sn0wfrogsCapybaras.MOD_ID, path));
+        SoundEvent soundEvent = SoundEvent.of(Identifier.of(Sn0wfrogsCapybaras.MOD_ID, path));
+        SOUND_EVENTS.put(soundEvent, Identifier.of(Sn0wfrogsCapybaras.MOD_ID, path));
         return soundEvent;
     }
 

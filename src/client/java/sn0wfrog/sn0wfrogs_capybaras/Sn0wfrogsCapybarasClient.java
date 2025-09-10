@@ -12,6 +12,7 @@ import net.minecraft.client.particle.CloudParticle;
 import net.minecraft.client.render.RenderLayer;
 
 public class Sn0wfrogsCapybarasClient implements ClientModInitializer {
+
 	@Override
 	public void onInitializeClient() {
 		EntityRendererRegistry.register(ModEntities.CAPYBARA, CapybaraEntityRenderer::new);

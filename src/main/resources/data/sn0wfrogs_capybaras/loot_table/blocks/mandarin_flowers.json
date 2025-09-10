@@ -6,6 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+
           "functions": [
             {
               "add": true,

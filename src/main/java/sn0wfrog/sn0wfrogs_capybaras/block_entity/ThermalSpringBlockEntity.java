@@ -1,5 +1,6 @@
 package sn0wfrog.sn0wfrogs_capybaras.block_entity;
 
+import net.minecraft.registry.RegistryWrapper;
 import sn0wfrog.sn0wfrogs_capybaras.Sn0wfrogsCapybaras;
 import sn0wfrog.sn0wfrogs_capybaras.init.ModBlockEntities;
 import sn0wfrog.sn0wfrogs_capybaras.init.ModSoundEvents;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class ThermalSpringBlockEntity extends BlockEntity {
 
+
     boolean hasPlayer;
 
 
@@ -30,8 +32,8 @@ public class ThermalSpringBlockEntity extends BlockEntity {
         this.hasPlayer = false;
     }
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapper) {
+        super.writeNbt(nbt, wrapper);
     }
 
     public static double calculateDistance(BlockPos blockPos1, BlockPos blockPos2) {

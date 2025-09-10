@@ -16,8 +16,9 @@ public interface ModStatusEffects {
 
     SweetenedStatusEffect SWEETENED = createStatusEffect("sweetened", new SweetenedStatusEffect(StatusEffectCategory.BENEFICIAL, 0xf34a13));
 
-    private static <T extends StatusEffect> T createStatusEffect(String name, T effect) {
-        EFFECTS.put(effect, new Identifier(Sn0wfrogsCapybaras.MOD_ID, name));
+    private static <T extends StatusEffect> T createStatusEffect(String name, T effect)
+    {
+        EFFECTS.put(effect, Identifier.of(Sn0wfrogsCapybaras.MOD_ID, name));
         return effect;
     }
 

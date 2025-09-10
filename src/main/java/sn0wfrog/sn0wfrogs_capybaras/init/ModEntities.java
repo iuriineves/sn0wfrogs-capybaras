@@ -16,7 +16,7 @@ public interface ModEntities {
     Map<EntityType<? extends Entity>, Identifier> ENTITIES = new LinkedHashMap<>();
 
     private static <T extends EntityType<? extends Entity>> T createEntity(String name, T entity) {
-        ENTITIES.put(entity, new Identifier(Sn0wfrogsCapybaras.MOD_ID, name));
+        ENTITIES.put(entity, Identifier.of(Sn0wfrogsCapybaras.MOD_ID, name));
         return entity;
     }
 

@@ -38,3 +38,9 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+
+#releases
+.releases
+
+#compressor
+tar-ignore.txt
